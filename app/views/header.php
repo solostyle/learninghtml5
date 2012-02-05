@@ -65,8 +65,8 @@ if(isset($_POST['login_submit'])) {
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>learning html5 : html5.solostyle.net</title>
-	<meta name="description" content="learning html5, learning, html5, web development, front-end, mvc, model-view-controller, javascript, jquery, css3, css, html">
+	<title>Learn html5 : html5.solostyle.net</title>
+	<meta name="description" content="Learn html5, Learn, html5, web development, front-end, mvc, model-view-controller, javascript, jquery, css3, css, html">
 	<meta name="author" content="solostyle">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -80,7 +80,7 @@ if(isset($_POST['login_submit'])) {
 <body>
 <div id="page">
 	<header>
-		<h1 id="pagetitle"><a href="/">learning HTML5</a></h1>
+		<h1 id="pagetitle"><a href="/">Learn HTML5</a></h1>
 
 		<!-- some lame tagline -->
 		<p id="pagesubtitle"><em>including JavaScript, CSS3, and PHP-based MVC frameworks</em></p>
@@ -196,6 +196,6 @@ if(isset($_POST['login_submit'])) {
         <?php endif; ?>
 		
 <script type="text/javascript">
-Learning.Objects.Categories = <?php echo json_encode($cats); ?>;
-Learning.Objects.Session = <?php echo json_encode($_SESSION); ?>;
+Learn.Objects.Categories = <?php echo json_encode($cats); ?>;
+Learn.Objects.Session = <?php echo json_encode($_SESSION); ?>;
 </script>

@@ -10,7 +10,7 @@ this.Listen = this.Listen || function (event, fn, elid) {
 };
 
 // Now define local website namespace
-this.Learning = this.Learning || function() {
+this.Learn = this.Learn || function() {
     var convertNewLines = function (text) {
         var finalText = "<p>" + text.replace(/\r\n\r\n/gi, "</p><p>") + "</p>";
         finalText = finalText.replace(/\r\n/gi, "<br />");
@@ -30,7 +30,7 @@ this.Learning = this.Learning || function() {
     };
 	
 	var rootDir = function() {
-		return 'http://Learning.solostyle.net';
+		return 'http://Learn.solostyle.net';
 	};
 	
 	var ds = function() {

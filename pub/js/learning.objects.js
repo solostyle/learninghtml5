@@ -1,4 +1,4 @@
-this.Learning.Objects = this.Learning.Objects || function() {
+this.Learn.Objects = this.Learn.Objects || function() {
     var func = function (parm) {
         return parm;
     };

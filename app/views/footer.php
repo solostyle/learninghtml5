@@ -8,7 +8,7 @@
 	</div>
 	<div class="block">
 		<h2>About</h2>
-		<p>I'm Archana. This is my blog about learning HTML5, JavaScript (jQuery included), CSS3, and PHP-based MVC frameworks. As I update my knowledge of new web technology I will share my discoveries and get excited about things.</p>
+		<p>I'm Archana. This is my blog about Learn HTML5, JavaScript (jQuery included), CSS3, and PHP-based MVC frameworks. As I update my knowledge of new web technology I will share my discoveries and get excited about things.</p>
 	</div>
 	<div class="block hidden">
 		<h2>Recent</h2>
@@ -28,15 +28,15 @@
 <?php echo $html->includeJs('yui28event');?>
 <?php echo $html->includeJs('yui28connection');?>
 <?php echo $html->includeJs('yui28dom');?>
-<?php echo $html->includeJs('Learning');?>
-<?php echo $html->includeJs('Learning.blog');?>
-<?php echo $html->includeJs('Learning.nav');?>
-<?php echo $html->includeJs('Learning.admin');?>
-<?php echo $html->includeJs('Learning.objects');?>
+<?php echo $html->includeJs('Learn');?>
+<?php echo $html->includeJs('Learn.blog');?>
+<?php echo $html->includeJs('Learn.nav');?>
+<?php echo $html->includeJs('Learn.admin');?>
+<?php echo $html->includeJs('Learn.objects');?>
 
 <script type="text/javascript">
-Learning.Admin.Load();
-Learning.Nav.Load();
+Learn.Admin.Load();
+Learn.Nav.Load();
 </script>
 
 </body>

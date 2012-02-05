@@ -1,4 +1,4 @@
-this.Learning.Blog = this.Learning.Blog || function() {
+this.Learn.Blog = this.Learn.Blog || function() {
 
     // Elements
     var blogWPElem = function() {return Ydom.get('blogEntries');};
@@ -23,7 +23,7 @@ this.Learning.Blog = this.Learning.Blog || function() {
     };
 
     var indexRequest = function(){
-        var indexRequest = AjaxR(Learning.RootDir()+Learning.Ds()+'blog/index', allCallback);
+        var indexRequest = AjaxR(Learn.RootDir()+Learn.Ds()+'blog/index', allCallback);
     };
 	
 

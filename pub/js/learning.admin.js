@@ -1,4 +1,4 @@
-this.Learning.Admin = this.Learning.Admin || function() {
+this.Learn.Admin = this.Learn.Admin || function() {
 
     // Elements
     var addEntryWPElem = function() {return Ydom.get('blogAddForm');},
@@ -74,23 +74,23 @@ this.Learning.Admin = this.Learning.Admin || function() {
 	// currently not used
 	// blog/index/1 because it's an ajax request
     var indexRequest = function(){
-        var request = AjaxR(Learning.RootDir()+Learning.Ds()+'blog/index/1', allCallback);
+        var request = AjaxR(Learn.RootDir()+Learn.Ds()+'blog/index/1', allCallback);
     };
     
     //Handler to make XHR request for adding an entry
     var addEntryRequest = function(){
         callback.data = 'title='+inpTitle()+'&category='+inpCategory()+'&entry='+inpEntry()+'&time='+inpTime()+'&year='+inpYear()+'&month='+inpMonth()+'&date='+inpDate();
-        var addRequest = AjaxR(Learning.RootDir()+Learning.Ds()+'blog/add', callback);
+        var addRequest = AjaxR(Learn.RootDir()+Learn.Ds()+'blog/add', callback);
     };
 
     var deleteEntryRequest = function(id) {
         callback.data = 'id='+id;
-        var deleteRequest = AjaxR(Learning.RootDir()+Learning.Ds()+'blog/delete', callback);
+        var deleteRequest = AjaxR(Learn.RootDir()+Learn.Ds()+'blog/delete', callback);
     };
     
     var updateEntryRequest = function(id) {
-        callback.data = 'id='+id+'&title='+updTitle(id)+'&category='+updCategory(id)+'&entry='+Learning.ConvertBrAndP(updEntry(id));
-        var updateRequest = AjaxR(Learning.RootDir()+Learning.Ds()+'blog/add', callback);
+        callback.data = 'id='+id+'&title='+updTitle(id)+'&category='+updCategory(id)+'&entry='+Learn.ConvertBrAndP(updEntry(id));
+        var updateRequest = AjaxR(Learn.RootDir()+Learn.Ds()+'blog/add', callback);
     };
   
     var findCategory = function() {
@@ -182,7 +182,7 @@ this.Learning.Admin = this.Learning.Admin || function() {
         
         // change behavior of the entryEntry div element
         var entryEl = formEditElem("entryEntry", id);
-        var clean = Learning.ConvertBrAndP(entryEl.innerHTML);
+        var clean = Learn.ConvertBrAndP(entryEl.innerHTML);
         entryEl.innerHTML = '<textarea>'+clean+'</textarea>';
     };
     
@@ -190,7 +190,7 @@ this.Learning.Admin = this.Learning.Admin || function() {
         // change behavior of the entryEntry div element
         var entryEl = formEditElem("entryEntry", id);
         var childEl = entryEl.childNodes[0];
-        var htmlized = Learning.ConvertNewLines(childEl.value);
+        var htmlized = Learn.ConvertNewLines(childEl.value);
         entryEl.innerHTML = htmlized;
         
         // change behavior of the entryEditButton for title
@@ -216,7 +216,7 @@ this.Learning.Admin = this.Learning.Admin || function() {
         // change behavior of the entryCategory span element
         var categoryEl = formEditElem("entryCategory", id);
         var childEl = categoryEl.childNodes[0];
-		var htmlized = '<a href="'+Learning.RootDir()+Learning.Ds()+'category'+Learning.Ds()+childEl.value+'">'+childEl.value+'</a>';
+		var htmlized = '<a href="'+Learn.RootDir()+Learn.Ds()+'category'+Learn.Ds()+childEl.value+'">'+childEl.value+'</a>';
         categoryEl.innerHTML = htmlized; // link
         
         // change behavior of the entryEditButton for category
