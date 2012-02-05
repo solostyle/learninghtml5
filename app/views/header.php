@@ -83,7 +83,7 @@ if(isset($_POST['login_submit'])) {
     <h1 id="pagetitle"><a href="/">learning HTML5</a></h1>
 
     <!-- some lame tagline -->
-    <p id="pagesubtitle"><em>including JavaScript, CSS3, and PHP-based MVCs</em></p>
+    <p id="pagesubtitle"><em>including JavaScript, CSS3, and PHP-based MVC frameworks</em></p>
 
     <!-- show some main navigation -->
     <ul id="mainnav"><?php 
