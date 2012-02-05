@@ -75,7 +75,7 @@
         </div><!-- end .article-content -->
 		
         <footer class="info">
-            <p><?php echo $date . ' at ' . $time?></p>
+            <p><time pubdate="pubdate" datetime="<?php echo $entry['Entry']['time']?>"><?php echo $date?></time> at <?php echo $time?></p>
             <!--<p><a href="#">0 comments</a> so far</p>-->
             <p><a href="<?php echo $l?>">Permalink</a></p>
 			<?php if ($tags):?>
