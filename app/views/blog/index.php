@@ -28,10 +28,12 @@
 </nav>
 <?php endif?>
 
-
+<ol> <!-- ordered list of articles, right? -->
 <?php foreach ($blog as $entry):?>
+<li>
 
 <?php 
+	# set some php variables used in displaying the article
     require_once (ROOT . DS . '235' . DS . 'presentfunc.php');
     $e = stripslashes($entry['Entry']['entry']);
     $e = nl2p_or_br($e);
@@ -51,15 +53,15 @@
 ?>
 
     <article class="entry" id="entry_<?php echo $entry['Entry']['id']?>">
-        <div class="main">
-        
+        <header>
             <!--allow editing of title only if logged in-->
             <?php if (isset($_SESSION['logged_in'])):?>
                 <div class="entryEditButton" id="editTitle_<?php echo $entry['Entry']['id']?>">Edit</div>
             <?php endif; ?>
-            
-            <h2 id="entryTitle_<?php echo $entry['Entry']['id']?>"><?php echo $ttl?></h2>
-
+			<h2 id="entryTitle_<?php echo $entry['Entry']['id']?>"><?php echo $ttl?></h2>
+        </header>
+		
+        <div class="article-content">
             <!--allow editing of entry only if logged in-->
             <?php if (isset($_SESSION['logged_in'])):?>
                 <div class="entryEditButton" id="editEntry_<?php echo $entry['Entry']['id']?>">Edit</div>
@@ -70,8 +72,9 @@
             <!-- <p>
              <em><a name="bot" href="http://iam.solostyle.net/comment.php">comment</a></em>
             </p> -->
-        </div><!-- end .main -->
-        <div class="info">
+        </div><!-- end .article-content -->
+		
+        <footer class="info">
             <p><?php echo $date . ' at ' . $time?></p>
             <!--<p><a href="#">0 comments</a> so far</p>-->
             <p><a href="<?php echo $l?>">Permalink</a></p>
@@ -88,12 +91,13 @@
             <?php if (isset($_SESSION['logged_in'])):?>
                 <p><a id="deleteEntry_<?php echo $entry['Entry']['id']?>">Delete</a></p>
             <?php endif; ?>
-        </div><!-- end .info -->
+        </footer><!-- end .info -->
 
     </article><!-- end .entry -->
 
+</li>
 <?php endforeach?>
-
+<ol> <!-- end ordered list of articles -->
 
 </div><!-- end #blogEntries -->
 
