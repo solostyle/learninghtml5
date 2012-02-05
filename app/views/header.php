@@ -66,6 +66,8 @@ if(isset($_POST['login_submit'])) {
 <title>learning html5 : html5.solostyle.net</title>
 <!-- Individual YUI JS files --> 
 <?php $html = new HTML();?>
+<?php echo $html->includeJs('modernizr-2.0.6.min');?>
+<?php echo $html->includeJs('jQuery-1.7.1.min');?>
 <?php echo $html->includeJs('yui28yahoo');?>
 <?php echo $html->includeJs('yui28event');?>
 <?php echo $html->includeJs('yui28connection');?>
@@ -75,6 +77,7 @@ if(isset($_POST['login_submit'])) {
 <?php echo $html->includeJs('Learning.nav');?>
 <?php echo $html->includeJs('Learning.admin');?>
 <?php echo $html->includeJs('Learning.objects');?>
+<?php echo $html->includeCss('style');?>
 <?php echo $html->includeCss('layout');?>
 <?php echo $html->includeCss('format');?>
 </head>
