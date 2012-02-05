@@ -71,15 +71,6 @@ if(isset($_POST['login_submit'])) {
 <?php echo $html->includeCss('format');?>
 <?php echo $html->includeJs('modernizr-2.0.6.min');?>
 <?php echo $html->includeJs('jQuery-1.7.1.min');?>
-<?php echo $html->includeJs('yui28yahoo');?>
-<?php echo $html->includeJs('yui28event');?>
-<?php echo $html->includeJs('yui28connection');?>
-<?php echo $html->includeJs('yui28dom');?>
-<?php echo $html->includeJs('Learning');?>
-<?php echo $html->includeJs('Learning.blog');?>
-<?php echo $html->includeJs('Learning.nav');?>
-<?php echo $html->includeJs('Learning.admin');?>
-<?php echo $html->includeJs('Learning.objects');?>
 </head>
 <body>
 <div id="page">

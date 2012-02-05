@@ -3,8 +3,8 @@
 
 <div id="footer">
 	<div class="block">
-		<!-- <p><img src="<?php echo BASE_PATH.DS.'img/640/me.jpg'?>" /></p> -->
-		<p style="text-align:center"><img src="<?php echo BASE_PATH.DS.'img/640/me_blurry.jpg'?>" height="240px" /></p>
+		<!-- <p><img src="<?php echo BASE_PATH.DS.'img/me.jpg'?>" /></p> -->
+		<p style="text-align:center"><img src="<?php echo BASE_PATH.DS.'img/me_blurry.jpg'?>" height="240px" /></p>
 	</div>
 	<div class="block">
 		<h2>About</h2>
@@ -23,6 +23,16 @@
 </div><!-- end #footer -->
 
 </div><!-- end #page -->
+
+<?php echo $html->includeJs('yui28yahoo');?>
+<?php echo $html->includeJs('yui28event');?>
+<?php echo $html->includeJs('yui28connection');?>
+<?php echo $html->includeJs('yui28dom');?>
+<?php echo $html->includeJs('Learning');?>
+<?php echo $html->includeJs('Learning.blog');?>
+<?php echo $html->includeJs('Learning.nav');?>
+<?php echo $html->includeJs('Learning.admin');?>
+<?php echo $html->includeJs('Learning.objects');?>
 
 <script type="text/javascript">
 Learning.Admin.Load();
