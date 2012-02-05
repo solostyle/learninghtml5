@@ -10,20 +10,22 @@
 ?>
 
 <?php if (isset($totalPages) && $totalPages>1):?>
-<ul>
-<li style="display:inline;padding:0 2px 0 3px;">
-<?php if ($currentPageNumber>1) echo $html->link('<< prev',$url.'/page/'.($currentPageNumber-1))?></li>
-<?php for ($i = 1; $i <= $totalPages; $i++):?>
-<li style="display:inline;padding:0 2px 0 3px;">
-<?php if ($i == $currentPageNumber):?>
-<?php echo $currentPageNumber?>
-<?php else: ?>
-<?php echo $html->link($i,$url.'/page/'.$i)?>
-<?php endif?>
-</li>
-<?php endfor?>
-<?php if ($currentPageNumber<$totalPages) echo $html->link('next >>',$url.'/page/'.($currentPageNumber+1))?></li>
-</ul>
+<nav>
+	<ul>
+	<li style="display:inline;padding:0 2px 0 3px;">
+	<?php if ($currentPageNumber>1) echo $html->link('<< prev',$url.'/page/'.($currentPageNumber-1))?></li>
+	<?php for ($i = 1; $i <= $totalPages; $i++):?>
+	<li style="display:inline;padding:0 2px 0 3px;">
+	<?php if ($i == $currentPageNumber):?>
+	<?php echo $currentPageNumber?>
+	<?php else: ?>
+	<?php echo $html->link($i,$url.'/page/'.$i)?>
+	<?php endif?>
+	</li>
+	<?php endfor?>
+	<?php if ($currentPageNumber<$totalPages) echo $html->link('next >>',$url.'/page/'.($currentPageNumber+1))?></li>
+	</ul>
+</nav>
 <?php endif?>
 
 
@@ -48,7 +50,7 @@
 	$c = make_link($entry['Entry']['category'], make_url('category/' . $cat));  // when saving new category, do it in the javascript
 ?>
 
-    <div class="entry" id="entry_<?php echo $entry['Entry']['id']?>">
+    <article class="entry" id="entry_<?php echo $entry['Entry']['id']?>">
         <div class="main">
         
             <!--allow editing of title only if logged in-->
@@ -88,7 +90,7 @@
             <?php endif; ?>
         </div><!-- end .info -->
 
-    </div><!-- end .entry -->
+    </article><!-- end .entry -->
 
 <?php endforeach?>
 
