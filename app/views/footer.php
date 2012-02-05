@@ -1,7 +1,7 @@
 </div><!-- end #right -->
 </div><!-- end #content -->
 
-<div id="footer">
+<footer>
 	<div class="block">
 		<!-- <p><img src="<?php echo BASE_PATH.DS.'img/me.jpg'?>" /></p> -->
 		<p style="text-align:center"><img src="<?php echo BASE_PATH.DS.'img/me_blurry.jpg'?>" height="240px" /></p>
@@ -20,7 +20,7 @@
 		<p>last.fm: <a href="http://ws.audioscrobbler.com/1.0/user/solostyle/recenttracks.rss">RSS</a></p>
 	</div>
 	<div class="clear"><br></div>
-</div><!-- end #footer -->
+</footer><!-- end #footer -->
 
 </div><!-- end #page -->
 

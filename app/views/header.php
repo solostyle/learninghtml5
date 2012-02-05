@@ -60,75 +60,83 @@ if(isset($_POST['login_submit'])) {
         echo 'technical problem. try again.';
 }
 ?>
-
-<html>
+<!DOCTYPE html>
+<html class="no-js"> <!-- for modernizr to replace if there is js -->
 <head>
-<title>learning html5 : html5.solostyle.net</title>
-<!-- Individual YUI JS files --> 
-<?php $html = new HTML();?>
-<?php echo $html->includeCss('style');?>
-<?php echo $html->includeCss('layout');?>
-<?php echo $html->includeCss('format');?>
-<?php echo $html->includeJs('modernizr-2.0.6.min');?>
-<?php echo $html->includeJs('jQuery-1.7.1.min');?>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>learning html5 : html5.solostyle.net</title>
+	<meta name="description" content="learning html5, learning, html5, web development, front-end, mvc, model-view-controller, javascript, jquery, css3, css, html">
+	<meta name="author" content="solostyle">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<?php $html = new HTML();?>
+	<?php echo $html->includeCss('style');?>
+	<?php echo $html->includeCss('layout');?>
+	<?php echo $html->includeCss('format');?>
+	<?php echo $html->includeJs('modernizr-2.0.6.min');?>
+	<?php echo $html->includeJs('jQuery-1.7.1.min');?>
 </head>
 <body>
 <div id="page">
-    <h1 id="pagetitle"><a href="/">learning HTML5</a></h1>
+	<header>
+		<h1 id="pagetitle"><a href="/">learning HTML5</a></h1>
 
-    <!-- some lame tagline -->
-    <p id="pagesubtitle"><em>including JavaScript, CSS3, and PHP-based MVC frameworks</em></p>
+		<!-- some lame tagline -->
+		<p id="pagesubtitle"><em>including JavaScript, CSS3, and PHP-based MVC frameworks</em></p>
+	</header>
+	
+	<!-- show some main navigation -->
+	<ul id="mainnav"><?php 
+		select_db();
+		$cats = rtrv_categories();
+		foreach ($cats as $c) {
+			$link = str_replace(" ", "_", $c);
+			echo make_list_item(make_link($c, make_url('category/'.$link)));
+		}
+		mysql_close();
+			?>
+	</ul>
 
-    <!-- show some main navigation -->
-    <ul id="mainnav"><?php 
-        select_db();
-        $cats = rtrv_categories();
-        foreach ($cats as $c) {
-            $link = str_replace(" ", "_", $c);
-            echo make_list_item(make_link($c, make_url('category/'.$link)));
-        }
-        mysql_close();
-            ?>
-    </ul>
+	<div id="loginToggle" onmouseup="Ydom.get('login').style.display = (Ydom.get('login').style.display=='none')? 'block' : 'none';"><?php if (isset($_SESSION['logged_in'])):?>Funcs<?php else:?>Login<?php endif;?></div>
 
-    <div id="loginToggle" onmouseup="Ydom.get('login').style.display = (Ydom.get('login').style.display=='none')? 'block' : 'none';"><?php if (isset($_SESSION['logged_in'])):?>Funcs<?php else:?>Login<?php endif;?></div>
-    <div id="login" style="display:none">
+	<div id="login" style="display:none">
+		<?php if (isset($_SESSION['logged_in']) AND substr($_SERVER['REQUEST_URI'],-8) != 'log_out'): ?>
+			<ul><?php 
+				$adminFuncs = array('publish_feeds' => 'publish feeds',
+								'tag_entries' => 'tag entries',
+								'categorize_entries' => 'categorize entries');
+				foreach ($adminFuncs as $link => $name) {
+					echo make_list_item(make_link($name, make_url('admin/'.$link)));
+				}
+				?>
+			</ul>
+			<ul>
+			<?php
+				$loginFuncs = array('change_pw' => 'change password',
+								'login_woe' => 'login woe?',
+								'log_out' => 'log out');
+				foreach ($loginFuncs as $link => $name) {
+					echo make_list_item(make_link($name, make_url('members/'.$link)));
+				}
+			?>
+			</ul>
 
-        <?php if (isset($_SESSION['logged_in']) AND substr($_SERVER['REQUEST_URI'],-8) != 'log_out'): ?>
-            <ul><?php 
-                $adminFuncs = array('publish_feeds' => 'publish feeds',
-                                'tag_entries' => 'tag entries',
-                                'categorize_entries' => 'categorize entries');
-                foreach ($adminFuncs as $link => $name) {
-                    echo make_list_item(make_link($name, make_url('admin/'.$link)));
-                }
-                ?>
-            </ul>
-            <ul>
-            <?php
-                $loginFuncs = array('change_pw' => 'change password',
-                                'login_woe' => 'login woe?',
-                                'log_out' => 'log out');
-                foreach ($loginFuncs as $link => $name) {
-                    echo make_list_item(make_link($name, make_url('members/'.$link)));
-                }
-            ?>
-            </ul>
+		<?php else: ?>
 
-        <?php else: ?>
+			<ul>
+				<form action="<?php echo make_url(substr($_SERVER['REQUEST_URI'], 1))?>" method="post">
+				<li>Name: <input type="text" size="8" name="username" tabindex="1" /> </li>
+				<li>Pass: <input type="password" size="7" name="password" tabindex="2" /> </li>
+				<li><input type="submit" name="login_submit" value="Log in" tabindex="3" /> </li>
+				</form>
+			</ul>
 
-            <ul>
-                <form action="<?php echo make_url(substr($_SERVER['REQUEST_URI'], 1))?>" method="post">
-                <li>Name: <input type="text" size="8" name="username" tabindex="1" /> </li>
-                <li>Pass: <input type="password" size="7" name="password" tabindex="2" /> </li>
-                <li><input type="submit" name="login_submit" value="Log in" tabindex="3" /> </li>
-                </form>
-            </ul>
+		<?php endif; ?>
 
-        <?php endif; ?>
-
-    </div><!-- end div#login -->
-
+	</div><!-- end div#login -->
+	
+	
     <div id="content"> 
         <div id="left">
             <?php
