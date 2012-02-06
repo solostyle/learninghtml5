@@ -49,13 +49,15 @@ body, button, input, select, textarea { font-family: sans-serif; color: #602225;
    Links
    ========================================================================== */
 
-a { color: #00e; }
-a:visited { color: #551a8b; }
+a { color: #000; text-decoration: underline}
+a:visited { color: #000; }
 a:focus { outline: thin dotted; }
 
 /* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
-a:hover, a:active { outline: 0; }
+a:hover, a:active { outline: 0; text-decoration: none}
 
+#header-container h1 a {color:#602225;text-decoration:none}
+#header-container h1 a:hover, #header-container h1 a:active  {text-decoration:underline}
 
 /* =============================================================================
    Typography
@@ -239,25 +241,23 @@ body{ font:16px/26px Helvetica, Helvetica Neue, Arial; }
 		tannish brush handle: #debe67 (2)
 		bluegreenish handle: #5d818f
 		purplish brush: #d3a4b8 (3), #9c7089, #bfa6dd (5)
-		greenish brush: #4a7965 (background color)
+		greenish brush: #3E6655, #3E6655 (background color)
 		orange/pink: #ff5649, #ff9870 (4)
 		some other color, light green: #87DE67 (6)
    */
 body {background-color:#e4e5dd}
-#header-container{ border-bottom: 20px solid #602225; }
-#footer-container{ border-top:    20px solid #602225; }
-#main aside      { border-top:    20px solid #602225; }
+#header-container{ border-bottom: 5px solid #aaa; }
+#footer-container{ border-top: 5px solid #aaa; }
+#main aside      { border-top: 5px solid #aaa; }
 
 #header-container,
-#footer-container,
-#main aside{
-	background:#4a7965;
-}
+#main aside { background-color:#D8D9D1 }
+#footer-container { background-color:#602225 }
 
-#title, #subtitle{ color:#e4e5dd; }
+#title, #subtitle{ color:#989994; font-style:oblique}
 
-::-moz-selection { background: #4a7965; color: #fff; text-shadow: none; }
-::selection      { background: #4a7965; color: #fff; text-shadow: none; }
+::-moz-selection { background: #aaa; color: #000; text-shadow: none; }
+::selection      { background: #aaa; color: #000; text-shadow: none; }
 
 /* ==============
     MOBILE: Menu
@@ -268,8 +268,8 @@ nav a{
 	margin-bottom:10px;
 	padding:10px 0;
 
-	background:#602225;
-	color:#e4e5dd;
+	background:#e4e5dd;
+	color:#602225;
 
 	text-align:center;
 	text-decoration:none;
@@ -277,7 +277,7 @@ nav a{
 }
 
 nav a:hover, nav a:visited{
-	color:#DEBE67;
+	color:#602225;
 }
 
 nav a:hover{
@@ -297,12 +297,12 @@ nav a:hover{
 }
 
 #main aside{
-	color:#e4e5dd;
+	color:#602225;
 	padding:0px 2% 10px;
 }
 
 #footer-container footer{
-	color:#602225;
+	color:#e4e5dd;
 	padding:20px 0;
 }
 
@@ -358,7 +358,7 @@ nav a:hover{
 	
 	nav a{
 		float:left;
-		margin:0 1.7%;
+		margin:0 .25%;
 		padding:15px 2%;
 		margin-bottom:0;
 	}
@@ -368,6 +368,7 @@ nav a:hover{
 	
 	#footer-container .footer-block {
 		background-color:#e4e5dd; /* background of the first one */
+		color:#602225;
 		float: left;
 		margin: 0 1% 2%;
 		min-height:280px; /* TODO I HATE THIS */
