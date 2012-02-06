@@ -9,7 +9,7 @@
 		</div>
 		<div class="footer-block">
 			<h2>About</h2>
-			<p>I'm Archana. This is my blog about HTML5, JavaScript (jQuery included), CSS3, and PHP-based MVC frameworks. As I update my knowledge of new web technology I will share my discoveries and get excited about things.</p>
+			<p>I'm Archana. This is my blog about HTML5, JavaScript (jQuery included), CSS3, and PHP-based MVC frameworks. As I update my knowledge of new web technology I share my discoveries and get excited about things.</p>
 		</div>
 		<div class="footer-block hidden">
 			<h2>Recent</h2>
