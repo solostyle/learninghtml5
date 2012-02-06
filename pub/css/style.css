@@ -33,7 +33,7 @@ html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -
 
 body { margin: 0; font-size: 13px; line-height: 1.231; }
 
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body, button, input, select, textarea { font-family: sans-serif; color: #602225; }
 
 /* 
  * These selection declarations have to be separate
@@ -201,6 +201,7 @@ table { border-collapse: collapse; border-spacing: 0; }
    Author: solostyle (spam@solostyle.net)
    ========================================================================== */
 
+img { max-width: 100% !important; }
 
 ol.articles-list, #login ul {
 	list-style-type: none;
@@ -233,20 +234,30 @@ body{ font:16px/26px Helvetica, Helvetica Neue, Arial; }
     ALL: Color Theme
    =================== */
 
-#header-container{ border-bottom: 20px solid #e44d26; }
-#footer-container{ border-top:    20px solid #e44d26; }
-#main aside      { border-top:    20px solid #e44d26; }
+   /* grayish background: #e4e5dd (1)
+		purplish brush handle: #602225 (text color, border)
+		tannish brush handle: #debe67 (2)
+		bluegreenish handle: #5d818f
+		purplish brush: #d3a4b8 (3), #9c7089, #bfa6dd (5)
+		greenish brush: #4a7965 (background color)
+		orange/pink: #ff5649, #ff9870 (4)
+		some other color, light green: #87DE67 (6)
+   */
+body {background-color:#e4e5dd}
+#header-container{ border-bottom: 20px solid #602225; }
+#footer-container{ border-top:    20px solid #602225; }
+#main aside      { border-top:    20px solid #602225; }
 
 #header-container,
 #footer-container,
 #main aside{
-	background:#f16529;
+	background:#4a7965;
 }
 
-#title, #subtitle{ color:white; }
+#title, #subtitle{ color:#e4e5dd; }
 
-::-moz-selection { background: #f16529; color: #fff; text-shadow: none; }
-::selection      { background: #f16529; color: #fff; text-shadow: none; }
+::-moz-selection { background: #4a7965; color: #fff; text-shadow: none; }
+::selection      { background: #4a7965; color: #fff; text-shadow: none; }
 
 /* ==============
     MOBILE: Menu
@@ -257,8 +268,8 @@ nav a{
 	margin-bottom:10px;
 	padding:10px 0;
 
-	background:#e44d26;
-	color:white;
+	background:#602225;
+	color:#e4e5dd;
 
 	text-align:center;
 	text-decoration:none;
@@ -266,7 +277,7 @@ nav a{
 }
 
 nav a:hover, nav a:visited{
-	color:white;
+	color:#DEBE67;
 }
 
 nav a:hover{
@@ -286,12 +297,12 @@ nav a:hover{
 }
 
 #main aside{
-	color:white;
+	color:#e4e5dd;
 	padding:0px 2% 10px;
 }
 
 #footer-container footer{
-	color:white;
+	color:#602225;
 	padding:20px 0;
 }
 
@@ -356,12 +367,18 @@ nav a:hover{
 	nav li:last-child  a{ margin-right:0; }
 	
 	#footer-container .footer-block {
-		background-color:#E44D26;
+		background-color:#e4e5dd; /* background of the first one */
 		float: left;
-		margin: 0 .625em; /* 10px / 16px = .625em, 988px-60px margins = 928. 928/3=309 */
-		width: 31.275%; /* 309px / 988px = 0.31275 ? */
+		margin: 0 1% 2%;
+		min-height:280px; /* TODO I HATE THIS */
+		width: 30%;
 	}
-	#footer-container .footer-block:first-child {
+	#footer-container .footer-block.two { background-color:#debe67 }
+	#footer-container .footer-block.three { background-color:#d3a4b8 }
+	#footer-container .footer-block.four { background-color:#ff9870 }
+	#footer-container .footer-block.five { background-color:#bfa6dd }
+	#footer-container .footer-block.six { background-color:#87DE67 }
+	#footer-container .footer-block.first {
 		margin-left:0;
 	}
 	#footer-container .footer-block p, #footer-container .footer-block h2, #footer-container .footer-block ul {

@@ -2,16 +2,20 @@
 </div><!-- end #main-container -->
 
 <div id="footer-container">
-	<footer class="wrapper">
-		<div class="footer-block">
+	<footer class="wrapper"><!-- one -->
+		<div class="footer-block first one">
+			<p style="text-align:center"><img src="<?php echo BASE_PATH.DS.'img/mybrushes.jpg'?>" height="240px" /></p>
+		</div><!-- two -->
+		<div class="footer-block two">
 			<h2>About</h2>
-			<p>I'm Archana. This is my blog about HTML5, JavaScript (jQuery included), CSS3, and PHP-based MVC frameworks. As I update my knowledge of new web technology I share my discoveries and get excited about things.</p>
-		</div>
-		<div class="footer-block hidden">
+			<p>I'm Archana. I get excited about the technical and the aesthetic when it comes to web craft. I write about HTML5, JavaScript (jQuery included), CSS3, PHP-based MVC frameworks, and the experience of building and using sites.</p>
+		</div><!-- three -->
+		<div class="footer-block three">
 			<h2>Recent</h2>
 			
 		</div>
-		<div class="footer-block">
+		<div class="clear"><br></div><!-- one -->
+		<div class="footer-block first four">
 			<h2>Good Sites</h2>
 			<ul>
 				<li><a href="http://www.uxmatters.com/index.php"><img src="http://www.google.com/s2/u/0/favicons?domain=uxmatters.com"/> UX Matters</a></l>
@@ -22,11 +26,15 @@
 				<li><a href="http://jsfiddle.net/"><img src="http://www.google.com/s2/u/0/favicons?domain=jsfiddle.net"/> JS Fiddle</a></l>
 				<li><a href="http://www.fontsquirrel.com/fontface/generator"><img src="http://www.google.com/s2/u/0/favicons?domain=fontsquirrel.com"/> Font Squirrel</a></l>
 			</ul>
-		</div>
-		<div class="footer-block">
+		</div><!-- two -->
+		<div class="footer-block five">
 			<h2>Feeds</h2>
 			<p>meditations: <a href="<?php echo BASE_PATH.DS.'rss.xml'?>">RSS</a> | <a href="<?php echo BASE_PATH.DS.'atom.xml'?>">Atom</a></p>
 			<p>last.fm: <a href="http://ws.audioscrobbler.com/1.0/user/solostyle/recenttracks.rss">RSS</a></p>
+		</div>
+		<div class="footer-block six">
+			<h2>Place holder</h2>
+			
 		</div>
 		<div class="clear"><br></div>
 	</footer><!-- end .wrapper -->
