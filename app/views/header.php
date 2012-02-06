@@ -75,7 +75,7 @@ if(isset($_POST['login_submit'])) {
 	<?php echo $html->includeCss('layout');?>
 	<?php echo $html->includeCss('format');?>
 	<?php echo $html->includeJs('modernizr-2.0.6.min');?>
-	<?php echo $html->includeJs('jQuery-1.7.1.min');?>
+	<!--<?php echo $html->includeJs('jQuery-1.7.1.min');?>-->
 </head>
 <body>
 <div id="page">
@@ -194,8 +194,3 @@ if(isset($_POST['login_submit'])) {
 
         </div><!-- end $blogAddForm -->
         <?php endif; ?>
-		
-<script type="text/javascript">
-Learn.Objects.Categories = <?php echo json_encode($cats); ?>;
-Learn.Objects.Session = <?php echo json_encode($_SESSION); ?>;
-</script>

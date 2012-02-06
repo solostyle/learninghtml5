@@ -100,7 +100,3 @@
 <ol> <!-- end ordered list of articles -->
 
 </div><!-- end #blogEntries -->
-
-<script type="text/javascript">
-Iam.Objects.Blog = <?php echo json_encode($blog); ?>;
-</script>

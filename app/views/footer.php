@@ -28,15 +28,18 @@
 <?php echo $html->includeJs('yui28event');?>
 <?php echo $html->includeJs('yui28connection');?>
 <?php echo $html->includeJs('yui28dom');?>
-<?php echo $html->includeJs('Learn');?>
-<?php echo $html->includeJs('Learn.blog');?>
-<?php echo $html->includeJs('Learn.nav');?>
-<?php echo $html->includeJs('Learn.admin');?>
-<?php echo $html->includeJs('Learn.objects');?>
+<?php echo $html->includeJs('learn');?>
+<?php echo $html->includeJs('learn.blog');?>
+<?php echo $html->includeJs('learn.nav');?>
+<?php echo $html->includeJs('learn.admin');?>
+<?php echo $html->includeJs('learn.objects');?>
 
 <script type="text/javascript">
 Learn.Admin.Load();
 Learn.Nav.Load();
+Learn.Objects.Categories = <?php echo json_encode($cats); ?>;
+Learn.Objects.Session = <?php echo json_encode($_SESSION); ?>;
+Learn.Objects.Blog = <?php echo json_encode($blog); ?>;
 </script>
 
 </body>

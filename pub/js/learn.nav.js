@@ -1,4 +1,4 @@
-this.Learn.Archmenu = this.Learn.Archmenu || function() {
+this.Learn.Nav = this.Learn.Nav || function() {
 
 	/* Elements
 	* LISTING <ul>
@@ -36,7 +36,7 @@ this.Learn.Archmenu = this.Learn.Archmenu || function() {
 
 	var storeMenu = function(o) {
 		if(o.responseText !== undefined){
-			Learn.Objects.ArchMenu = JSON.parse(o.responseText);
+			Learn.Objects.Nav = JSON.parse(o.responseText);
 			initMenuState();
 		}
 	};
@@ -54,14 +54,14 @@ this.Learn.Archmenu = this.Learn.Archmenu || function() {
 	
 	//Handler to make XHR request for just showing all entries
 	var indexRequest = function(isAjaxR){
-      if (isAjaxR) AjaxR(Learn.RootDir()+Learn.Ds()+'archmenu/index/1', indexCallback);
-      else AjaxR(Learn.RootDir()+Learn.Ds()+'archmenu/index/0', indexCallback);
+      if (isAjaxR) AjaxR(Learn.RootDir()+Learn.Ds()+'nav/index/1', indexCallback);
+      else AjaxR(Learn.RootDir()+Learn.Ds()+'nav/index/0', indexCallback);
 	};
   
-	// Stores the menu in Json in Learn.Objects.ArchMenu
+	// Stores the menu in Json in Learn.Objects.Nav
 	var saveMenuRequest = function(isAjaxR){
-      if (isAjaxR) AjaxR(Learn.RootDir()+Learn.Ds()+'archmenu/save/1', saveCallback);
-      else AjaxR(Learn.RootDir()+Learn.Ds()+'archmenu/save/0', saveCallback);
+      if (isAjaxR) AjaxR(Learn.RootDir()+Learn.Ds()+'nav/save/1', saveCallback);
+      else AjaxR(Learn.RootDir()+Learn.Ds()+'nav/save/0', saveCallback);
 	};
 	
 	// Initializes the menu state with highlights and displays
@@ -76,7 +76,7 @@ this.Learn.Archmenu = this.Learn.Archmenu || function() {
 		//			> don't expand anything
 		// > show anything the user wanted to show
 		// > hide everything else
-		var menu = Learn.Objects.ArchMenu,
+		var menu = Learn.Objects.Nav,
 		uriArray = window.location.pathname.split('/'),
 		r = false, y = false, m = false, t = false, id;
 		uriArray.shift();
@@ -136,7 +136,7 @@ this.Learn.Archmenu = this.Learn.Archmenu || function() {
 	// currently unused
 	// Saves the view of the menu so that it can load it this way next time
 	var saveMenuState = function(id, yr, mo) {
-		if (!Learn.Objects.ArchMenu) {
+		if (!Learn.Objects.Nav) {
 			saveMenuRequest(true);
 			saveMenuState(id, yr, mo);
 		} else {
@@ -146,9 +146,9 @@ this.Learn.Archmenu = this.Learn.Archmenu || function() {
 			// if it has a hidden class, change the display of the id to hide
 			var menu = Ydom.get(id);
 			if (mo) {
-				Learn.Objects.ArchMenu[yr][mo]['display'] = Ydom.hasClass(menu, 'hidden') ? 'hide' : 'show';
+				Learn.Objects.Nav[yr][mo]['display'] = Ydom.hasClass(menu, 'hidden') ? 'hide' : 'show';
 			} else {
-				Learn.Objects.ArchMenu[yr]['display'] = Ydom.hasClass(menu, 'hidden') ? 'hide' : 'show';
+				Learn.Objects.Nav[yr]['display'] = Ydom.hasClass(menu, 'hidden') ? 'hide' : 'show';
 			}
 		}
 	};
