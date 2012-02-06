@@ -361,6 +361,9 @@ nav a:hover{
 		margin: 0 .625em; /* 10px / 16px = .625em, 988px-60px margins = 928. 928/3=309 */
 		width: 31.275%; /* 309px / 988px = 0.31275 ? */
 	}
+	#footer-container .footer-block:first-child {
+		margin-left:0;
+	}
 	#footer-container .footer-block p, #footer-container .footer-block h2, #footer-container .footer-block ul {
 		padding:0 5%;
 		width:90%;

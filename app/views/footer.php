@@ -3,10 +3,6 @@
 
 <div id="footer-container">
 	<footer class="wrapper">
-		<div class="footer-block hidden">
-			<!-- <p><img src="<?php echo BASE_PATH.DS.'img/me.jpg'?>" /></p> -->
-			<p style="text-align:center"><img src="<?php echo BASE_PATH.DS.'img/me_blurry.jpg'?>" height="240px" /></p>
-		</div>
 		<div class="footer-block">
 			<h2>About</h2>
 			<p>I'm Archana. This is my blog about HTML5, JavaScript (jQuery included), CSS3, and PHP-based MVC frameworks. As I update my knowledge of new web technology I share my discoveries and get excited about things.</p>
@@ -18,12 +14,13 @@
 		<div class="footer-block">
 			<h2>Good Sites</h2>
 			<ul>
-				<li><a href="http://www.uxmatters.com/index.php">UX Matters</a></l>
-				<li><a href="http://www.quackit.com/">Web Tutorials</a></l>
-				<li><a href="http://www.learningjquery.com/">Learn jQuery</a></l>
-				<li><a href="http://visualjquery.com/">Visual jQuery</a></l>
-				<li><a href="http://jsfiddle.net/">JS Fiddle</a></l>
-				<li><a href="http://www.fontsquirrel.com/fontface/generator">Font Squirrel</a></l>
+				<li><a href="http://www.uxmatters.com/index.php"><img src="http://www.google.com/s2/u/0/favicons?domain=uxmatters.com"/> UX Matters</a></l>
+				<li><a href="http://goodexperience.com/"><img src="http://www.google.com/s2/u/0/favicons?domain=goodexperience.com"/> Good Experience</a></l>
+				<li><a href="http://www.quackit.com/"><img src="http://www.google.com/s2/u/0/favicons?domain=quackit.com"/> Web Tutorials</a></l>
+				<li><a href="http://www.learningjquery.com/"><img src="http://www.google.com/s2/u/0/favicons?domain=learningjquery.com"/> Learn jQuery</a></l>
+				<li><a href="http://visualjquery.com/"><img src="http://www.google.com/s2/u/0/favicons?domain=visualjquery.com"/> Visual jQuery</a></l>
+				<li><a href="http://jsfiddle.net/"><img src="http://www.google.com/s2/u/0/favicons?domain=jsfiddle.net"/> JS Fiddle</a></l>
+				<li><a href="http://www.fontsquirrel.com/fontface/generator"><img src="http://www.google.com/s2/u/0/favicons?domain=fontsquirrel.com"/> Font Squirrel</a></l>
 			</ul>
 		</div>
 		<div class="footer-block">
