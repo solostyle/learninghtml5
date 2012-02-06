@@ -3,7 +3,7 @@
 
 <div id="footer-container">
 	<footer class="wrapper">
-		<div class="footer-block">
+		<div class="footer-block hidden">
 			<!-- <p><img src="<?php echo BASE_PATH.DS.'img/me.jpg'?>" /></p> -->
 			<p style="text-align:center"><img src="<?php echo BASE_PATH.DS.'img/me_blurry.jpg'?>" height="240px" /></p>
 		</div>
@@ -14,6 +14,17 @@
 		<div class="footer-block hidden">
 			<h2>Recent</h2>
 			
+		</div>
+		<div class="footer-block">
+			<h2>Good Sites</h2>
+			<ul>
+				<li><a href="http://www.uxmatters.com/index.php">UX Matters</a></l>
+				<li><a href="http://www.quackit.com/">Web Tutorials</a></l>
+				<li><a href="http://www.learningjquery.com/">Learn jQuery</a></l>
+				<li><a href="http://visualjquery.com/">Visual jQuery</a></l>
+				<li><a href="http://jsfiddle.net/">JS Fiddle</a></l>
+				<li><a href="http://www.fontsquirrel.com/fontface/generator">Font Squirrel</a></l>
+			</ul>
 		</div>
 		<div class="footer-block">
 			<h2>Feeds</h2>
