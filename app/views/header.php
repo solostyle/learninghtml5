@@ -137,16 +137,16 @@ if(isset($_POST['login_submit'])) {
 	</div><!-- end #header-container -->
 	
 	
-    <div id="main-container"> 
-        <div id="left">
+    <div id="main" class="wrapper clearfix"> 
+        <aside>
             <?php
 				echo performAction('nav','index',true);
             ?>
 
-        </div><!-- end #left -->
+        </aside><!-- end aside -->
 
 
-    <div id="right">
+    <section>
         <?php if (isset($_SESSION['logged_in'])): ?>
         <div id="blogAddForm">
 

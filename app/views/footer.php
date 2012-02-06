@@ -1,4 +1,4 @@
-</div><!-- end #right -->
+</section><!-- end #right -->
 </div><!-- end #main-container -->
 
 <div id="footer-container">
