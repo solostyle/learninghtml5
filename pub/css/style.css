@@ -198,13 +198,23 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* =============================================================================
    Primary styles
-   Author: 
+   Author: solostyle (spam@solostyle.net)
    ========================================================================== */
 
 
+ol.articles-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
 
-
-
+#login-toggle, #login {
+	font-size:.8em;
+	position:absolute;
+	top:0;
+}
+#login-toggle { right:0; }
+#login { right:2%; }
 
 /* ===================================================
     Initializr styles

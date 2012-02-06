@@ -28,7 +28,7 @@
 </nav>
 <?php endif?>
 
-<ol> <!-- ordered list of articles, right? -->
+<ol class="articles-list"> <!-- ordered list of articles, right? -->
 <?php foreach ($blog as $entry):?>
 <li>
 
@@ -97,6 +97,6 @@
 
 </li>
 <?php endforeach?>
-<ol> <!-- end ordered list of articles -->
+</ol> <!-- end ordered list of articles -->
 
 </div><!-- end #blogEntries -->
