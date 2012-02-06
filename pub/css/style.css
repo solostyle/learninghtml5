@@ -202,7 +202,7 @@ table { border-collapse: collapse; border-spacing: 0; }
    ========================================================================== */
 
 
-ol.articles-list {
+ol.articles-list, #login ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -287,7 +287,7 @@ nav a:hover{
 
 #main aside{
 	color:white;
-	padding:0px 5% 10px;
+	padding:0px 2% 10px;
 }
 
 #footer-container footer{
@@ -398,7 +398,7 @@ nav a:hover{
 		
 	#main aside{
 		float:right;
-		width:15%;
+		width:25%;
 	}
 }
 
