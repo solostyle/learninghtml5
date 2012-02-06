@@ -70,76 +70,74 @@ if(isset($_POST['login_submit'])) {
 	<meta name="author" content="solostyle">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<?php $html = new HTML();?>
-	<?php echo $html->includeCss('style');?>
-	<?php echo $html->includeCss('layout');?>
-	<?php echo $html->includeCss('format');?>
-	<?php echo $html->includeJs('modernizr-2.0.6.min');?>
-	<!--<?php echo $html->includeJs('jQuery-1.7.1.min');?>-->
+	<?php $html = new HTML();
+	echo $html->includeCss('style');
+	echo $html->includeCss('layout');
+	echo $html->includeCss('format');
+	echo $html->includeJs('modernizr-2.0.6.min');
+	echo $html->includeJs('jQuery-1.7.1.min');?>
 </head>
 <body>
-<div id="page">
-	<header>
-		<h1 id="pagetitle"><a href="/">Learn HTML5</a></h1>
-
-		<!-- some lame tagline -->
-		<p id="pagesubtitle"><em>including JavaScript, CSS3, and PHP-based MVC frameworks</em></p>
+	<div id="header-container">
+		<header class="wrapper clearfix">
+			<h1 id="title"><a href="/">Learn HTML5</a></h1>
+			<h2 id="subtitle">including JavaScript, CSS3, and PHP-based MVC frameworks</h2>
 		
-		<!-- some main navigation -->
-		<nav>
-			<ul id="mainnav"><?php 
-			select_db();
-			$cats = rtrv_categories();
-			foreach ($cats as $c) {
-				$link = str_replace(" ", "_", $c);
-				echo make_list_item(make_link($c, make_url('category/'.$link)));
-			}
-			mysql_close();
-				?>
-			</ul>
-		</nav>
-
-		<div id="loginToggle" onmouseup="Ydom.get('login').style.display = (Ydom.get('login').style.display=='none')? 'block' : 'none';"><?php if (isset($_SESSION['logged_in'])):?>Funcs<?php else:?>Login<?php endif;?></div>
-
-		<div id="login" style="display:none">
-			<?php if (isset($_SESSION['logged_in']) AND substr($_SERVER['REQUEST_URI'],-8) != 'log_out'): ?>
-				<ul><?php 
-					$adminFuncs = array('publish_feeds' => 'publish feeds',
-									'tag_entries' => 'tag entries',
-									'categorize_entries' => 'categorize entries');
-					foreach ($adminFuncs as $link => $name) {
-						echo make_list_item(make_link($name, make_url('admin/'.$link)));
-					}
+			<nav>
+				<ul id="mainnav"><?php 
+				select_db();
+				$cats = rtrv_categories();
+				foreach ($cats as $c) {
+					$link = str_replace(" ", "_", $c);
+					echo make_list_item(make_link($c, make_url('category/'.$link)));
+				}
+				mysql_close();
 					?>
 				</ul>
-				<ul>
-				<?php
-					$loginFuncs = array('change_pw' => 'change password',
-									'login_woe' => 'login woe?',
-									'log_out' => 'log out');
-					foreach ($loginFuncs as $link => $name) {
-						echo make_list_item(make_link($name, make_url('members/'.$link)));
-					}
-				?>
-				</ul>
+			</nav>
 
-			<?php else: ?>
+			<div id="loginToggle" onmouseup="Ydom.get('login').style.display = (Ydom.get('login').style.display=='none')? 'block' : 'none';"><?php if (isset($_SESSION['logged_in'])):?>Funcs<?php else:?>Login<?php endif;?></div>
 
-				<ul>
-					<form action="<?php echo make_url(substr($_SERVER['REQUEST_URI'], 1))?>" method="post">
-					<li>Name: <input type="text" size="8" name="username" tabindex="1" /> </li>
-					<li>Pass: <input type="password" size="7" name="password" tabindex="2" /> </li>
-					<li><input type="submit" name="login_submit" value="Log in" tabindex="3" /> </li>
-					</form>
-				</ul>
+			<div id="login" style="display:none">
+				<?php if (isset($_SESSION['logged_in']) AND substr($_SERVER['REQUEST_URI'],-8) != 'log_out'): ?>
+					<ul><?php 
+						$adminFuncs = array('publish_feeds' => 'publish feeds',
+										'tag_entries' => 'tag entries',
+										'categorize_entries' => 'categorize entries');
+						foreach ($adminFuncs as $link => $name) {
+							echo make_list_item(make_link($name, make_url('admin/'.$link)));
+						}
+						?>
+					</ul>
+					<ul>
+					<?php
+						$loginFuncs = array('change_pw' => 'change password',
+										'login_woe' => 'login woe?',
+										'log_out' => 'log out');
+						foreach ($loginFuncs as $link => $name) {
+							echo make_list_item(make_link($name, make_url('members/'.$link)));
+						}
+					?>
+					</ul>
 
-			<?php endif; ?>
+				<?php else: ?>
 
-		</div><!-- end div#login -->
-	</header>
+					<ul>
+						<form action="<?php echo make_url(substr($_SERVER['REQUEST_URI'], 1))?>" method="post">
+						<li>Name: <input type="text" size="8" name="username" tabindex="1" /> </li>
+						<li>Pass: <input type="password" size="7" name="password" tabindex="2" /> </li>
+						<li><input type="submit" name="login_submit" value="Log in" tabindex="3" /> </li>
+						</form>
+					</ul>
+
+				<?php endif; ?>
+
+			</div><!-- end div#login -->
+		</header>
+	</div><!-- end #header-container -->
 	
 	
-    <div id="content"> 
+    <div id="main-container"> 
         <div id="left">
             <?php
 				echo performAction('nav','index',true);

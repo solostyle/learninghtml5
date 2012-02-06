@@ -233,7 +233,7 @@ body{ font:16px/26px Helvetica, Helvetica Neue, Arial; }
 	background:#f16529;
 }
 
-#title{ color:white; }
+#title, #subtitle{ color:white; }
 
 ::-moz-selection { background: #f16529; color: #fff; text-shadow: none; }
 ::selection      { background: #f16529; color: #fff; text-shadow: none; }
@@ -332,7 +332,6 @@ nav a:hover{
 	
 	nav a{
 		float:left;
-		width:27%;
 		margin:0 1.7%;
 		padding:25px 2%;
 		margin-bottom:0;
@@ -364,19 +363,6 @@ nav a:hover{
 		-webkit-box-shadow:0 5px 10px #aaa;
 		   -moz-box-shadow:0 5px 10px #aaa;
 		        box-shadow:0 5px 10px #aaa;
-	}
-
-/* ============
-    WIDE: Menu
-   ============ */
-	
-	#title{
-		float:left;
-	}
-
-	nav{
-		float:right;
-		width:38%;
 	}
 
 /* ============
