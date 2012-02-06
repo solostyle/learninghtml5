@@ -4,7 +4,7 @@
 
 define ('DEVELOPMENT_ENVIRONMENT',true);
 
-define('DB_NAME', 'iam');
+define('DB_NAME', 'learnhtml5');
 define('DB_USER', 'solostyle');
 define('DB_PASSWORD', 'qas??wed');
 define('DB_HOST', 'mysql.solostyle.net');
