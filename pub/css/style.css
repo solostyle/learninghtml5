@@ -340,6 +340,18 @@ nav a:hover{
 	nav li:first-child a{ margin-left:0;  }
 	nav li:last-child  a{ margin-right:0; }
 	
+	#footer-container .footer-block {
+		float: left;
+		margin: 0 .625em; /* 10px / 16px = .625em, 988px-60px margins = 928. 928/3=309 */
+		width: 31.275%; /* 309px / 988px = 0.31275 ? */
+	}
+	#footer-container .clear {
+		clear: both;
+		font-size:1px;
+		height:1px;
+		line-height:1px;
+	}
+
 /* ========================
     INTERMEDIATE: IE Fixes
    ======================== */
