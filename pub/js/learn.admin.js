@@ -273,7 +273,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
             //indexRequest(true);
 
             // set event handle for clicks in the web part
-            Listen("click", handleClick, 'right');
+            Listen("click", handleClick, 'blogAddForm');
         }
     };
 

@@ -30,7 +30,7 @@ this.Learn = this.Learn || function() {
     };
 	
 	var rootDir = function() {
-		return 'http://Learn.solostyle.net';
+		return 'http://html5.solostyle.net';
 	};
 	
 	var ds = function() {
