@@ -61,6 +61,26 @@
 			<h2 id="entryTitle_<?php echo $entry['Entry']['id']?>"><?php echo $ttl?></h2>
         </header>
 		
+        <footer class="info">
+			<ul>
+            <li><time pubdate="pubdate" datetime="<?php echo $entry['Entry']['time']?>"><?php echo $date?></time> at <?php echo $time?></li>
+            <!--<p><a href="#">0 comments</a> so far</p>-->
+            <li><a href="<?php echo $l?>">Permalink</a></li>
+			<?php if ($tags):?>
+                <li>Tags: <?php foreach ($tags as $tag) echo $tag.' '?></li>
+            <?php endif; ?>
+            
+			<li>
+			<?php if (isset($_SESSION['logged_in'])):?>
+                <div class="entryEditButton" id="editCategory_<?php echo $entry['Entry']['id']?>">Edit</div>
+            <?php endif; ?> Categorized under <span id="entryCategory_<?php echo $entry['Entry']['id']?>"><?php echo $c?></span></li>
+
+            <?php if (isset($_SESSION['logged_in'])):?>
+                <li><a id="deleteEntry_<?php echo $entry['Entry']['id']?>">Delete</a></li>
+            <?php endif; ?>
+			</ul>
+        </footer><!-- end .info -->
+		
         <div class="article-content">
             <!--allow editing of entry only if logged in-->
             <?php if (isset($_SESSION['logged_in'])):?>
@@ -74,25 +94,6 @@
             </p> -->
         </div><!-- end .article-content -->
 		
-        <footer class="info">
-            <p><time pubdate="pubdate" datetime="<?php echo $entry['Entry']['time']?>"><?php echo $date?></time> at <?php echo $time?></p>
-            <!--<p><a href="#">0 comments</a> so far</p>-->
-            <p><a href="<?php echo $l?>">Permalink</a></p>
-			<?php if ($tags):?>
-                <p>Tagged with <?php foreach ($tags as $tag) echo $tag.' '?></p>
-            <?php endif; ?>
-            
-			<?php if (isset($_SESSION['logged_in'])):?>
-                <div class="entryEditButton" id="editCategory_<?php echo $entry['Entry']['id']?>">Edit</div>
-            <?php endif; ?>
-			
-			<p>Categorized under <span id="entryCategory_<?php echo $entry['Entry']['id']?>"><?php echo $c?></span></p>
-
-            <?php if (isset($_SESSION['logged_in'])):?>
-                <p><a id="deleteEntry_<?php echo $entry['Entry']['id']?>">Delete</a></p>
-            <?php endif; ?>
-        </footer><!-- end .info -->
-
     </article><!-- end .entry -->
 
 </li>

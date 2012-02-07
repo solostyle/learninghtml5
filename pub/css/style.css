@@ -211,6 +211,10 @@ ol.articles-list, #login ul {
 	padding: 0;
 }
 
+article footer ul {padding:0}
+article footer ul li {display:inline;padding:0 2%;border-left:1px solid}
+article footer ul li:first-child {padding-left:0;border:0}
+
 #login-toggle, #login {
 	font-size:.8em;
 	position:absolute;
