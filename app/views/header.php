@@ -156,7 +156,7 @@ if(isset($_POST['login_submit'])) {
 						<input type="text" value="title" id="addFormTitle"/>
 					</li>
 					<li>
-						<textarea id="addFormEntry" rows="15">article</textarea>
+						<textarea id="addFormEntry" rows="10">article</textarea>
 					</li>
 				</ol>
 			</fieldset>

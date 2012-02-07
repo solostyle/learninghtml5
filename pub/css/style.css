@@ -145,7 +145,7 @@ fieldset { border: 0; margin: 0; padding: 0; }
 legend { border: 0; *margin-left: -7px; padding: 0; }
 
 /* Indicate that 'label' will shift focus to the associated form element */
-label { cursor: pointer; }
+label, label:hover { cursor: pointer; }
 
 /*
  * 1. Correct font-size not inheriting in all browsers
@@ -203,6 +203,8 @@ table { border-collapse: collapse; border-spacing: 0; }
    Author: solostyle (spam@solostyle.net)
    ========================================================================== */
 
+body {text-shadow: 0 1px 1px #fff}
+
 img { max-width: 100% !important; }
 
 ol.articles-list, #login ul {
@@ -210,7 +212,7 @@ ol.articles-list, #login ul {
 	margin: 0;
 	padding: 0;
 }
-
+article {padding:2%; width:96%}
 article footer ul {padding:0}
 article footer ul li {display:inline;padding:0 2%;border-left:1px solid}
 article footer ul li:first-child {padding-left:0;border:0}
@@ -223,11 +225,60 @@ article footer ul li:first-child {padding-left:0;border:0}
 #login-toggle { right:0; }
 #login { right:2%; }
 
-button#new-article-button {}
+button#new-article-button, form#add-article-form button:not([type=submit]) {
+
+}
 form#add-article-form {
-	background: #D8D9D1;
+	background: #FF9870;
+	counter-reset: fieldsets;
 	padding: 2%;
 	width: 96%;
+}
+form#add-article-form fieldset { margin-bottom: 10px }
+form#add-article-form fieldset:last-of-type { margin-bottom: 0 }
+form#add-article-form legend {font-size:1.5em;text-shadow: 0 1px 1px #fff}
+form#add-article-form > fieldset > legend:before {
+	content: "Step " counter(fieldsets) ": ";
+	counter-increment: fieldsets;
+}
+form#add-article-form ol {padding: 0}
+form#add-article-form ol li {
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+	border-style: solid;
+    border-width: 1px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    border-radius: 3px;
+    list-style: none;
+	margin-bottom: 1%;
+    padding: 1%;
+	width:98%
+}
+form#add-article-form ol li input:not([type=radio]), 
+form#add-article-form ol li textarea {
+	border: 0; padding: 0; width: 100%;
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+    border-radius: 3px;
+	line-height:1.5em;
+}
+form#add-article-form button[type=submit] {
+	border: none;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-khtml-border-radius: 20px;
+	border-radius: 20px;
+	background: #602225;
+	color: #e4e5dd;
+	text-shadow: 0 1px 1px #000000;
+	font-size: 1.5em;
+	letter-spacing: 1px;
+	margin: auto;
+	display:block;
+	padding: 2% 5%;
+	text-transform: uppercase;
 }
 
 /* ===================================================
@@ -259,7 +310,6 @@ body{ font:16px/26px Helvetica, Helvetica Neue, Arial; }
 body {background-color:#e4e5dd}
 #header-container{ border-bottom: 5px solid #aaa; }
 #footer-container{ border-top: 5px solid #aaa; }
-#main aside      { border-top: 5px solid #aaa; }
 
 #header-container,
 #main aside { background-color:#D8D9D1 }
@@ -424,9 +474,21 @@ nav a:hover{
 
 	#header-container,
 	#main aside{
-		-webkit-box-shadow:0 5px 10px #aaa;
-		   -moz-box-shadow:0 5px 10px #aaa;
-		        box-shadow:0 5px 10px #aaa;
+		-webkit-box-shadow:0 11px 10px -5px #aaa;
+		-moz-box-shadow:0 11px 10px -5px #aaa;
+		box-shadow:0 11px 10px -5px #aaa;
+	}
+	
+	#main article, #main #admin {
+		-webkit-box-shadow:0 11px 10px -5px #aaa;
+		-moz-box-shadow:0 11px 10px -5px #aaa;
+		box-shadow:0 11px 10px -5px #aaa;
+	}
+	
+	#footer-container .footer-block {
+		-webkit-box-shadow:0 11px 10px -5px #000;
+		-moz-box-shadow:0 11px 10px -5px #000;
+		box-shadow:0 11px 10px -5px #000;
 	}
 
 /* ============
