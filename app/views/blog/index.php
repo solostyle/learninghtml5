@@ -1,4 +1,4 @@
-<div id="blogEntries">
+<section id="blog">
 
 <?php 
 	if ($isAjax) {
@@ -58,7 +58,7 @@
             <?php if (isset($_SESSION['logged_in'])):?>
                 <div class="entryEditButton" id="editTitle_<?php echo $entry['Entry']['id']?>">Edit</div>
             <?php endif; ?>
-			<h2 id="entryTitle_<?php echo $entry['Entry']['id']?>"><?php echo $ttl?></h2>
+			<h1 id="entryTitle_<?php echo $entry['Entry']['id']?>"><?php echo $ttl?></h1>
         </header>
 		
         <footer class="info">
@@ -100,4 +100,4 @@
 <?php endforeach?>
 </ol> <!-- end ordered list of articles -->
 
-</div><!-- end #blogEntries -->
+</section><!-- end #blog -->

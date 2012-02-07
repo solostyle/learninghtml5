@@ -145,50 +145,58 @@ if(isset($_POST['login_submit'])) {
 
         </aside><!-- end aside -->
 
-
-    <section>
-        <?php if (isset($_SESSION['logged_in'])): ?>
-        <div id="blogAddForm">
-
-            <h2 id="addAnEntry">Add an Entry</h2>
-            <div id="addForm">
-                <div class="main">
-                    <p><input type="text" value="title" id="addFormTitle"/></p>
-                    <p><textarea id="addFormEntry">entry</textarea></p>
-                </div><!-- end .main -->
-
-                <div class="info">
-
-                    <!-- the category of the entry, radio buttons -->   
-                    <ul>
-                        <?php 
-                        select_db();
-                        $cats = rtrv_categories();
-                        mysql_close();
-                        foreach ($cats as $cat):?>
-                            <li><input type="radio" name="category" id="addFormCategory_<?php echo $cat?>" value="<?php echo $cat?>" /><?php echo $cat?></li>
-                        <?php endforeach;?>
-                    </ul>
-
-
-                    <!-- the date and time, empty, filled in with javascript -->
-                    <p>
+	<?php if (isset($_SESSION['logged_in'])): ?>
+    <section id="admin">
+		<button type="button" id="new-article-button">New Article</button>
+        <form id="add-article-form">
+			<fieldset>
+				<legend>Write the Article</legend>
+				<ol>
+					<li>
+						<input type="text" value="title" id="addFormTitle"/>
+					</li>
+					<li>
+						<textarea id="addFormEntry" rows="15">article</textarea>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset>
+				<legend>Choose a Category</legend>
+				<ol>
+					<?php 
+							select_db();
+							$cats = rtrv_categories();
+							mysql_close();
+							foreach ($cats as $cat):?>
+					<li>
+						<input type="radio" name="category" id="addFormCategory_<?php echo $cat?>" value="<?php echo $cat?>" />
+						<label for="addFormCategory_<?php echo $cat?>"><?php echo $cat?></label>
+					</li>
+					<?php endforeach;?>
+				</ol>
+			</fieldset>
+			<fieldset>
+				<legend>Time and Date</legend>
+			<!-- the date and time, empty, filled in with javascript -->
+                <ol>
+					<li>
                         <input type="text" id="year" name="year" size="3" maxlength="4" value="" />
                         <input type="text" id="month" name="month" size="1" maxlength="2" value="" />
                         <input type="text" id="date" name="date" size="1" maxlength="2" value="" />
                         <input type="text" id="hour" name="hour" size="1" maxlength="2" value="" />
                         <input type="text" id="minute" name="minute" size="1" maxlength="2" value="" />
-                    </p>
-                    <p>
-                        <input type="button" id="addFormChangeTime" value="Change" />
-                    </p>
-                    <p>
-                        <input type="text" readonly="readonly" id="addFormTime" size="20" value="" />
-                    </p>
-
-                    <p><input type="button" id="addFormSubmit" value="add"/></p>
-                </div><!-- end .info -->
-            </div><!-- end #addForm -->
-
-        </div><!-- end $blogAddForm -->
-        <?php endif; ?>
+                    </li>
+                    <li>
+                        <button type="button" id="addFormChangeTime">Set Time</button>
+                    </li>
+                    <li>
+                        <input type="text" readonly="readonly" id="addFormTime" value="" />
+                    </li>
+				</ol>
+			</fieldset>
+			<fieldset>
+				<button type="submit" id="addFormSubmit">Add it!</button>
+            </fieldset>
+        </form><!-- end #blog-add-form -->
+	</section>
+	<?php endif; ?>

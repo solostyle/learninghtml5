@@ -223,6 +223,13 @@ article footer ul li:first-child {padding-left:0;border:0}
 #login-toggle { right:0; }
 #login { right:2%; }
 
+button#new-article-button {}
+form#add-article-form {
+	background: #D8D9D1;
+	padding: 2%;
+	width: 96%;
+}
+
 /* ===================================================
     Initializr styles
     http://verekia.com/initializr/responsive-template
@@ -426,7 +433,7 @@ nav a:hover{
     WIDE: Main
    ============ */
 
-	#main article{
+	#main section{
 		float:left;
 		width:70%;
 	}
