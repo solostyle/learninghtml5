@@ -176,7 +176,7 @@ if(isset($_POST['login_submit'])) {
 				</ol>
 			</fieldset>
 			<fieldset>
-				<legend>Time and Date</legend>
+				<legend>Verify Time and Date</legend>
 			<!-- the date and time, empty, filled in with javascript -->
                 <ol>
 					<li>
