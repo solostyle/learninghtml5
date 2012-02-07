@@ -376,16 +376,15 @@ nav a:hover{
 		float: left;
 		margin: 0 1% 2%;
 		min-height:280px; /* TODO I HATE THIS */
-		width: 30%;
+		width: 32%;
 	}
 	#footer-container .footer-block.two { background-color:#debe67 }
 	#footer-container .footer-block.three { background-color:#d3a4b8 }
 	#footer-container .footer-block.four { background-color:#ff9870 }
 	#footer-container .footer-block.five { background-color:#bfa6dd }
 	#footer-container .footer-block.six { background-color:#87DE67 }
-	#footer-container .footer-block.first {
-		margin-left:0;
-	}
+	#footer-container .footer-block.first { margin-left:0; }
+	#footer-container .footer-block.last { margin-right:0; }
 	#footer-container .footer-block p, #footer-container .footer-block h2, #footer-container .footer-block ul {
 		padding:0 5%;
 		width:90%;

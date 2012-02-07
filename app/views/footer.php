@@ -10,7 +10,7 @@
 			<h2>About</h2>
 			<p>I'm Archana. I get excited about the technical and the aesthetic when it comes to web craft. I write about HTML5, JavaScript (jQuery included), CSS3, PHP-based MVC frameworks, and the experience of building and using sites.</p>
 		</div><!-- three -->
-		<div class="footer-block three">
+		<div class="footer-block last three">
 			<h2>Recent</h2>
 			
 		</div>
@@ -32,7 +32,7 @@
 			<p>meditations: <a href="<?php echo BASE_PATH.DS.'rss.xml'?>">RSS</a> | <a href="<?php echo BASE_PATH.DS.'atom.xml'?>">Atom</a></p>
 			<p>last.fm: <a href="http://ws.audioscrobbler.com/1.0/user/solostyle/recenttracks.rss">RSS</a></p>
 		</div>
-		<div class="footer-block six">
+		<div class="footer-block last six">
 			<h2>Place holder</h2>
 			
 		</div>
