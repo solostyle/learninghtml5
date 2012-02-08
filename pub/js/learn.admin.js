@@ -1,10 +1,10 @@
 this.Learn.Admin = this.Learn.Admin || function() {
 
     // Elements
-    var addEntryWPElem = function() {return Ydom.get('blogAddForm');},
-    blogEntriesElem = function() {return Ydom.get('blogEntries');},
-    formDivElem = function() {return Ydom.get('addForm');},
-    formToggleDivElem = function() {return Ydom.get('addAnEntry');},
+    var addEntryWPElem = function() {return Ydom.get('admin');},
+    blogSectionElem = function() {return Ydom.get('blog');},
+    formDivElem = function() {return Ydom.get('add-article-form');},
+    formToggleDivElem = function() {return Ydom.get('new-article-button');},
     formTitleElem = function() {return Ydom.get('addFormTitle');},
     formEntryElem = function() {return Ydom.get('addFormEntry');},
     formTimeElem = function() {return Ydom.get('addFormTime');},
@@ -23,7 +23,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
     inpEntry = function() {return formEntryElem().value;}, // TODO: escape quotes!
     inpTitle = function() {return formTitleElem().value;}, // TODO: escape quotes!
     inpCategory = function() {return findCategory();},
-    inpTime = function() {return formTimeElem().value;},
+    inpTime = function() {return formTimeElem().textContent;},
     inpYear = function() {return formYearElem().value;},
     inpMonth = function() {return formMonthElem().value;},
     inpDate = function() {return formDateElem().value;},
@@ -40,14 +40,14 @@ this.Learn.Admin = this.Learn.Admin || function() {
     var handleSuccess = function(o) {
         // b/c successful, clear the form
         clearForm();
-        // load the entries again into #blogEntries
+        // load the entries again into #blog section
         reloadCurrentPageRequest();
     };
 
     var loadIndex = function(o){
         toggleForm("close");
         if(o.responseText !== undefined){
-            blogEntriesElem().innerHTML = o.responseText;
+            blogSectionElem().innerHTML = o.responseText;
         }        
     };
     
@@ -108,14 +108,14 @@ this.Learn.Admin = this.Learn.Admin || function() {
     var toggleForm = function(cmd) {
         // save off the current values of the input boxes
         var currTitleVal = formTitleElem().value || 'title';
-        var currEntryVal = formEntryElem().value || 'entry';
+        var currEntryVal = formEntryElem().value || 'article text';
         
         if(cmd==="close") {
             formDivElem().style.display = "";
-            formToggleDivElem().innerHTML = "Add an Entry";
+            formToggleDivElem().innerHTML = "New Article";
         } else {
             formDivElem().style.display = (formDivElem().style.display=='block')?'':'block';
-            formToggleDivElem().innerHTML = (formDivElem().style.display=='block')?'Close':'Add an Entry';
+            formToggleDivElem().innerHTML = (formDivElem().style.display=='block')?'Close':'New Article';
         }
         
         if (formDivElem().style.display=='') {
@@ -149,7 +149,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
     };
     
     var changeTime = function() {
-        formTimeElem().value = inpYear() + '.' + inpMonth() + '.' + inpDate() + ' ' + inpHour() + ':' + inpMinute();
+        formTimeElem().textContent = inpYear() + '.' + inpMonth() + '.' + inpDate() + ' ' + inpHour() + ':' + inpMinute();
     };
     
     var makeEditableTitle = function(editButton, id) {
@@ -238,7 +238,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
         case "deleteEntry":
             deleteEntryRequest(id);
             break;
-        case "addAnEntry":
+        case "new-article-button":
             toggleForm();
             break;
         case "addFormChangeTime":
@@ -273,7 +273,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
             //indexRequest(true);
 
             // set event handle for clicks in the web part
-            Listen("click", handleClick, 'blogAddForm');
+            Listen("click", handleClick, 'admin');
         }
     };
 

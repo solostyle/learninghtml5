@@ -156,7 +156,7 @@ if(isset($_POST['login_submit'])) {
 						<input type="text" value="title" id="addFormTitle"/>
 					</li>
 					<li>
-						<textarea id="addFormEntry" rows="10">article</textarea>
+						<textarea id="addFormEntry" rows="10">article text</textarea>
 					</li>
 				</ol>
 			</fieldset>
@@ -190,7 +190,7 @@ if(isset($_POST['login_submit'])) {
                         <button type="button" id="addFormChangeTime">Set Time</button>
                     </li>
                     <li>
-                        <input type="text" readonly="readonly" id="addFormTime" value="" />
+                        <label id="addFormTime"><label>
                     </li>
 				</ol>
 			</fieldset>

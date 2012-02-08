@@ -462,7 +462,7 @@ nav a:hover{
 		height:1px;
 		line-height:1px;
 	}
-	#addForm { display: none; }
+	#add-article-form { display: none; }
 
 /* ========================
     INTERMEDIATE: IE Fixes
