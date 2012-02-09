@@ -1,7 +1,7 @@
 this.Learn.Admin = this.Learn.Admin || function() {
 
     // Elements
-    var addEntryWPElem = function() {return Ydom.get('admin');},
+    var adminSectionElem = function() {return Ydom.get('admin');},
     blogSectionElem = function() {return Ydom.get('blog');},
     formDivElem = function() {return Ydom.get('add-article-form');},
     formToggleDivElem = function() {return Ydom.get('new-article-button');},
@@ -33,7 +33,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
     // Success and failure functions for different requests
     var handleFailure = function(o){
         if(o.responseText !== undefined){
-            addEntryWPElem().innerHTML = "request failure: " + o.responseText + addEntryWPElem().innerHTML;
+            adminSectionElem().innerHTML = "request failure: " + o.responseText + adminSectionElem().innerHTML;
         }
     };
 
@@ -94,7 +94,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
     };
   
     var findCategory = function() {
-        var el = Ydom.getElementBy(findCatName, 'input', addEntryWPElem());
+        var el = Ydom.getElementBy(findCatName, 'input', adminSectionElem());
         return el.getAttribute('id').split('_', 2)[1];
     };
     
@@ -272,7 +272,8 @@ this.Learn.Admin = this.Learn.Admin || function() {
             //indexRequest(true);
 
             // set event handle for clicks in the web part
-            Listen("click", handleClick, 'admin');
+            Listen("click", handleClick, adminSectionElem());
+			Listen("click", handleClick, blogSectionElem());
         }
     };
 
