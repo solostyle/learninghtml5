@@ -56,9 +56,9 @@
         <header>
             <!--allow editing of title only if logged in-->
             <?php if (isset($_SESSION['logged_in'])):?>
-                <div class="entryEditButton" id="editTitle_<?php echo $entry['Entry']['id']?>">Edit</div>
+                <div class="entryEditButton" id="edit-title_<?php echo $entry['Entry']['id']?>">Edit</div>
             <?php endif; ?>
-			<h1 id="entryTitle_<?php echo $entry['Entry']['id']?>"><?php echo $ttl?></h1>
+			<h1 id="entry-title_<?php echo $entry['Entry']['id']?>"><?php echo $ttl?></h1>
         </header>
 		
         <footer class="info">
@@ -72,11 +72,11 @@
             
 			<li>
 			<?php if (isset($_SESSION['logged_in'])):?>
-                <div class="entryEditButton" id="editCategory_<?php echo $entry['Entry']['id']?>">Edit</div>
-            <?php endif; ?> Categorized under <span id="entryCategory_<?php echo $entry['Entry']['id']?>"><?php echo $c?></span></li>
+                <div class="entryEditButton" id="edit-category_<?php echo $entry['Entry']['id']?>">Edit</div>
+            <?php endif; ?> Categorized under <span id="entry-category_<?php echo $entry['Entry']['id']?>"><?php echo $c?></span></li>
 
             <?php if (isset($_SESSION['logged_in'])):?>
-                <li><a id="deleteEntry_<?php echo $entry['Entry']['id']?>">Delete</a></li>
+                <li><a id="delete-entry_<?php echo $entry['Entry']['id']?>">Delete</a></li>
             <?php endif; ?>
 			</ul>
         </footer><!-- end .info -->
@@ -84,10 +84,10 @@
         <div class="article-content">
             <!--allow editing of entry only if logged in-->
             <?php if (isset($_SESSION['logged_in'])):?>
-                <div class="entryEditButton" id="editEntry_<?php echo $entry['Entry']['id']?>">Edit</div>
+                <div class="entryEditButton" id="edit-entry_<?php echo $entry['Entry']['id']?>">Edit</div>
             <?php endif; ?>
 
-            <div id="entryEntry_<?php echo $entry['Entry']['id']?>"><?php echo $e?></div>
+            <div id="entry-entry_<?php echo $entry['Entry']['id']?>"><?php echo $e?></div>
             
             <!-- <p>
              <em><a name="bot" href="http://iam.solostyle.net/comment.php">comment</a></em>

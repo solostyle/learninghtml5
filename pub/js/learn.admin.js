@@ -5,20 +5,20 @@ this.Learn.Admin = this.Learn.Admin || function() {
     blogSectionElem = function() {return Ydom.get('blog');},
     formDivElem = function() {return Ydom.get('add-article-form');},
     formToggleDivElem = function() {return Ydom.get('new-article-button');},
-    formTitleElem = function() {return Ydom.get('addFormTitle');},
-    formEntryElem = function() {return Ydom.get('addFormEntry');},
-    formTimeElem = function() {return Ydom.get('addFormTime');},
+    formTitleElem = function() {return Ydom.get('add-article-form-title');},
+    formEntryElem = function() {return Ydom.get('add-article-form-entry');},
+    formTimeElem = function() {return Ydom.get('add-article-form-time');},
 
-    formYearElem = function() {return Ydom.get('year');},
-    formMonthElem = function() {return Ydom.get('month');},
-    formDateElem = function() {return Ydom.get('date');},
-    formHourElem = function() {return Ydom.get('hour');},
-    formMinuteElem = function() {return Ydom.get('minute');},
+    formYearElem = function() {return Ydom.get('add-article-form-year');},
+    formMonthElem = function() {return Ydom.get('add-article-form-month');},
+    formDateElem = function() {return Ydom.get('add-article-form-date');},
+    formHourElem = function() {return Ydom.get('add-article-form-hour');},
+    formMinuteElem = function() {return Ydom.get('add-article-form-minute');},
     
     formEditElem = function(pre, id) {return Ydom.get(pre+'_'+id);},
-    updTitle = function(id) {return formEditElem("entryTitle", id).innerHTML;},
-    updEntry = function(id) {return formEditElem("entryEntry", id).innerHTML;},
-    updCategory = function(id) {return formEditElem("entryCategory", id).lastChild.innerHTML;},
+    updTitle = function(id) {return formEditElem("entry-title", id).innerHTML;},
+    updEntry = function(id) {return formEditElem("entry-entry", id).innerHTML;},
+    updCategory = function(id) {return formEditElem("entry-category", id).lastChild.innerHTML;},
 	
     inpEntry = function() {return formEntryElem().value;}, // TODO: escape quotes!
     inpTitle = function() {return formTitleElem().value;}, // TODO: escape quotes!
@@ -99,7 +99,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
     };
     
     var findCatName = function(el) {
-        if (el.getAttribute('id') && el.getAttribute('id').split('_', 2)[0] == 'addFormCategory') {
+        if (el.getAttribute('id') && el.getAttribute('id').split('_', 2)[0] == 'add-article-form-category') {
             if (el.checked) return true;
             else return false;
         } else return false;
@@ -107,7 +107,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
     
     var toggleForm = function(cmd) {
         // save off the current values of the input boxes
-        var currTitleVal = formTitleElem().value || 'title';
+        var currTitleVal = formTitleElem().value || 'article title';
         var currEntryVal = formEntryElem().value || 'article text';
         
         if(cmd==="close") {
@@ -126,8 +126,8 @@ this.Learn.Admin = this.Learn.Admin || function() {
     };
     
     var clearForm = function() {
-        formTitleElem().value = 'title';
-        formEntryElem().value = 'entry';
+        formTitleElem().value = 'article title';
+        formEntryElem().value = 'article text';
         updateTimeToNow();
         changeTime();
     };
@@ -154,22 +154,22 @@ this.Learn.Admin = this.Learn.Admin || function() {
     
     var makeEditableTitle = function(editButton, id) {
         // change behavior of the entryEditButton for title
-        editButton.setAttribute('id', "saveTitle_" + id);
+        editButton.setAttribute('id', "save-title_" + id);
         editButton.innerHTML = "Save";
         
         // change behavior of the entryTitle h2 element
-        var titleEl = formEditElem("entryTitle", id);
+        var titleEl = formEditElem("entry-title", id);
         titleEl.innerHTML = '<input type="text" value="'+titleEl.innerHTML+'" />';
     };
     
     var saveTitle = function(saveButton, id) {
         // change behavior of the entryTitle h2 element
-        var titleEl = formEditElem("entryTitle", id);
+        var titleEl = formEditElem("entry-title", id);
         var childEl = titleEl.childNodes[0];
         titleEl.innerHTML = childEl.value;
         
         // change behavior of the entryEditButton for title
-        saveButton.setAttribute('id', "editTitle_" + id);
+        saveButton.setAttribute('id', "edit-title_" + id);
         saveButton.innerHTML = "Edit";
         
         var request = updateEntryRequest(id);
@@ -177,24 +177,24 @@ this.Learn.Admin = this.Learn.Admin || function() {
     
     var makeEditableEntry = function(editButton, id) {
         // change behavior of the entryEditButton for title
-        editButton.setAttribute('id', "saveEntry_" + id);
+        editButton.setAttribute('id', "save-entry_" + id);
         editButton.innerHTML = "Save";
         
         // change behavior of the entryEntry div element
-        var entryEl = formEditElem("entryEntry", id);
+        var entryEl = formEditElem("entry-entry", id);
         var clean = Learn.ConvertBrAndP(entryEl.innerHTML);
         entryEl.innerHTML = '<textarea>'+clean+'</textarea>';
     };
     
     var saveEntry = function(saveButton, id) {
         // change behavior of the entryEntry div element
-        var entryEl = formEditElem("entryEntry", id);
+        var entryEl = formEditElem("entry-entry", id);
         var childEl = entryEl.childNodes[0];
         var htmlized = Learn.ConvertNewLines(childEl.value);
         entryEl.innerHTML = htmlized;
         
         // change behavior of the entryEditButton for title
-        saveButton.setAttribute('id', "editEntry_" + id);
+        saveButton.setAttribute('id', "edit-entry_" + id);
         saveButton.innerHTML = "Edit";
         
         var request = updateEntryRequest(id);
@@ -203,24 +203,24 @@ this.Learn.Admin = this.Learn.Admin || function() {
     // TODO: make this show all the categories in a <select>
     var makeEditableCategory = function(editButton, id) {
         // change behavior of the entryEditButton for category
-        editButton.setAttribute('id', "saveCategory_" + id);
+        editButton.setAttribute('id', "save-category_" + id);
         editButton.innerHTML = "Save";
         
         // change behavior of the entryCategory span element
-        var categoryEl = formEditElem("entryCategory", id);
+        var categoryEl = formEditElem("entry-category", id);
         //categoryEl.innerHTML = '<select>'+clean+'</select>';
 		categoryEl.innerHTML = '<input type="text" value="'+categoryEl.lastChild.innerHTML+'" />';
     };
     
     var saveCategory = function(saveButton, id) {
         // change behavior of the entryCategory span element
-        var categoryEl = formEditElem("entryCategory", id);
+        var categoryEl = formEditElem("entry-category", id);
         var childEl = categoryEl.childNodes[0];
 		var htmlized = '<a href="'+Learn.RootDir()+Learn.Ds()+'category'+Learn.Ds()+childEl.value+'">'+childEl.value+'</a>';
         categoryEl.innerHTML = htmlized; // link
         
         // change behavior of the entryEditButton for category
-        saveButton.setAttribute('id', "editCategory_" + id);
+        saveButton.setAttribute('id', "edit-category_" + id);
         saveButton.innerHTML = "Edit";
         
         var request = updateEntryRequest(id);
@@ -232,34 +232,34 @@ this.Learn.Admin = this.Learn.Admin || function() {
         command = (targetId)?targetId.split('_', 2)[0]:null;
         id = (targetId)?targetId.split('_', 2)[1]:null;
         switch (command) {
-        case "addFormSubmit": 
+        case "add-article-form-submit": 
             addEntryRequest(1);
             break;
-        case "deleteEntry":
+        case "delete-entry":
             deleteEntryRequest(id);
             break;
         case "new-article-button":
             toggleForm();
             break;
-        case "addFormChangeTime":
+        case "add-article-form-change-time":
             changeTime();
             break;
-        case "editTitle":
+        case "edit-title":
             makeEditableTitle(e.target, id);
             break;
-        case "saveTitle":
+        case "save-title":
             saveTitle(e.target, id);
             break;
-        case "editEntry":
+        case "edit-entry":
             makeEditableEntry(e.target, id);
             break;
-        case "saveEntry":
+        case "save-entry":
             saveEntry(e.target, id);
             break;
-        case "editCategory":
+        case "edit-category":
             makeEditableCategory(e.target, id);
             break;
-        case "saveCategory":
+        case "save-category":
             saveCategory(e.target, id);
 			default:
             break;

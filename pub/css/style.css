@@ -266,7 +266,7 @@ form#add-article-form ol li {
     padding: 1%;
 	width:98%
 }
-form#add-article-form ol li input#addFormTitle, 
+form#add-article-form ol li input#add-article-form-title, 
 form#add-article-form ol li textarea {
 	border: 0; padding: 0; width: 100%;
 	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);	

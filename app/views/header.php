@@ -75,7 +75,7 @@ if(isset($_POST['login_submit'])) {
 	echo $html->includeCss('layout');
 	echo $html->includeCss('format');
 	echo $html->includeJs('modernizr-2.0.6.min');
-	echo $html->includeJs('jQuery-1.7.1.min');?>
+	echo $html->includeJs('jquery-1.7.1.min');?>
 </head>
 <body>
 	<div id="header-container">
@@ -153,10 +153,10 @@ if(isset($_POST['login_submit'])) {
 				<legend>Write the Article</legend>
 				<ol>
 					<li>
-						<input type="text" value="title" id="addFormTitle"/>
+						<input type="text" value="article title" id="add-article-form-title"/>
 					</li>
 					<li>
-						<textarea id="addFormEntry" rows="10">article text</textarea>
+						<textarea id="add-article-form-entry" rows="10">article text</textarea>
 					</li>
 				</ol>
 			</fieldset>
@@ -169,8 +169,8 @@ if(isset($_POST['login_submit'])) {
 							mysql_close();
 							foreach ($cats as $cat):?>
 					<li>
-						<input type="radio" name="category" id="addFormCategory_<?php echo $cat?>" value="<?php echo $cat?>" />
-						<label for="addFormCategory_<?php echo $cat?>"><?php echo $cat?></label>
+						<input type="radio" name="category" id="add-article-form-category_<?php echo $cat?>" value="<?php echo $cat?>" />
+						<label for="add-article-form-category_<?php echo $cat?>"><?php echo $cat?></label>
 					</li>
 					<?php endforeach;?>
 				</ol>
@@ -180,22 +180,22 @@ if(isset($_POST['login_submit'])) {
 			<!-- the date and time, empty, filled in with javascript -->
                 <ol>
 					<li>
-                        <input type="text" id="year" name="year" size="3" maxlength="4" value="" />
-                        <input type="text" id="month" name="month" size="1" maxlength="2" value="" />
-                        <input type="text" id="date" name="date" size="1" maxlength="2" value="" />
-                        <input type="text" id="hour" name="hour" size="1" maxlength="2" value="" />
-                        <input type="text" id="minute" name="minute" size="1" maxlength="2" value="" />
+                        <input type="text" id="add-article-form-year" name="add-article-form-year" size="3" maxlength="4" value="" />
+                        <input type="text" id="add-article-form-month" name="add-article-form-month" size="1" maxlength="2" value="" />
+                        <input type="text" id="add-article-form-date" name="add-article-form-date" size="1" maxlength="2" value="" />
+                        <input type="text" id="add-article-form-hour" name="add-article-form-hour" size="1" maxlength="2" value="" />
+                        <input type="text" id="add-article-form-minute" name="add-article-form-minute" size="1" maxlength="2" value="" />
                     </li>
                     <li>
-                        <button type="button" id="addFormChangeTime">Set Time</button>
+                        <button type="button" id="add-article-form-change-time">Set Time</button>
                     </li>
                     <li>
-                        <label id="addFormTime"><label>
+                        <label id="add-article-form-time"><label>
                     </li>
 				</ol>
 			</fieldset>
 			<fieldset>
-				<button type="submit" id="addFormSubmit">Add it!</button>
+				<button type="submit" id="add-article-form-submit">Add it!</button>
             </fieldset>
         </form><!-- end #blog-add-form -->
 	</section>
