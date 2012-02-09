@@ -79,7 +79,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
     
     //Handler to make XHR request for adding an entry
     var addEntryRequest = function(){
-        callback.data = 'title='+inpTitle()+'&category='+inpCategory()+'&entry='+inpEntry()+'&time='+inpTime()+'&year='+inpYear()+'&month='+inpMonth()+'&date='+inpDate();
+        callback.data = 'title='+inpTitle()+'&category='+inpCategory()+'&entry='+Learn.Htmlize(inpEntry())+'&time='+inpTime()+'&year='+inpYear()+'&month='+inpMonth()+'&date='+inpDate();
         var addRequest = AjaxR(Learn.RootDir()+Learn.Ds()+'blog/add', callback);
     };
 
@@ -89,7 +89,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
     };
     
     var updateEntryRequest = function(id) {
-        callback.data = 'id='+id+'&title='+updTitle(id)+'&category='+updCategory(id)+'&entry='+Learn.ConvertBrAndP(updEntry(id));
+        callback.data = 'id='+id+'&title='+updTitle(id)+'&category='+updCategory(id)+'&entry='+updEntry(id);
         var updateRequest = AjaxR(Learn.RootDir()+Learn.Ds()+'blog/add', callback);
     };
   
@@ -182,7 +182,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
         
         // change behavior of the entryEntry div element
         var entryEl = formEditElem("entry-entry", id);
-        var clean = Learn.ConvertBrAndP(entryEl.innerHTML);
+        var clean = Learn.Textize(entryEl.innerHTML);
         entryEl.innerHTML = '<textarea>'+clean+'</textarea>';
     };
     
@@ -190,8 +190,7 @@ this.Learn.Admin = this.Learn.Admin || function() {
         // change behavior of the entryEntry div element
         var entryEl = formEditElem("entry-entry", id);
         var childEl = entryEl.childNodes[0];
-        var htmlized = Learn.ConvertNewLines(childEl.value);
-        entryEl.innerHTML = htmlized;
+        entryEl.innerHTML = Learn.Htmlize(childEl.value);
         
         // change behavior of the entryEditButton for title
         saveButton.setAttribute('id', "edit-entry_" + id);
