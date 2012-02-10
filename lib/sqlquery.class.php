@@ -341,7 +341,7 @@ class SQLQuery {
     function delete() {
         if ($this->id) {
 
-			// Does row exist in backup table? Find the max revision #
+			// Does row exist in backup table?
 			$search_query = 'SELECT * FROM '.$this->_backupTable.' WHERE `id`=\''.mysql_real_escape_string($this->id).'\'';
 			
 			$this->_result = mysql_query($search_query, $this->_dbHandle);

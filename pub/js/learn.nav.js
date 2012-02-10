@@ -18,23 +18,23 @@ this.Learn.Nav = this.Learn.Nav || function() {
 	* if it is null, call /menu
 	*/
 
-	var leftWPElem = function() {return Ydom.get('left');}, // #left houses #archmenuWP
-	archmenuWPElem = function() {return Ydom.get('archmenuWP');};
+	var navElem = function() {return jQuery('archmenuWP');},
+		parentElem = function() {return jQuery('archmenuWP').parent();};
 
 	// Success and failure functions for different requests
 	var handleFailure = function(o){
 		if(o.responseText !== undefined){
-			leftWPElem().innerHTML = "request failure: " + o.responseText + leftWPElem().innerHTML;
+			parentElem().html("request failure: " + o.responseText + parentElem().html());
 		}
 	};
 
 	var insertMenu = function(o) {
 		if(o.responseText !== undefined){
-			leftWPElem().innerHTML = o.responseText;
+			parentElem().html(o.responseText);
 		}
 	};
 
-	var storeMenu = function(o) {
+	var storeMenu = function(data, textStatus, o) {
 		if(o.responseText !== undefined){
 			Learn.Objects.Nav = JSON.parse(o.responseText);
 			initMenuState();
@@ -47,9 +47,10 @@ this.Learn.Nav = this.Learn.Nav || function() {
 		failure: handleFailure
 	};
 	var saveCallback ={
-		method:"GET",
+		url: Learn.RootDir()+Learn.Ds()+'nav/save/1',
 		success: storeMenu,
-		failure: handleFailure
+		error: handleFailure,
+		dataType: 'json'
 	};
 	
 	//Handler to make XHR request for just showing all entries
@@ -60,7 +61,7 @@ this.Learn.Nav = this.Learn.Nav || function() {
   
 	// Stores the menu in Json in Learn.Objects.Nav
 	var saveMenuRequest = function(isAjaxR){
-      if (isAjaxR) AjaxR(Learn.RootDir()+Learn.Ds()+'nav/save/1', saveCallback);
+      if (isAjaxR) jQuery.ajax(saveCallback);
       else AjaxR(Learn.RootDir()+Learn.Ds()+'nav/save/0', saveCallback);
 	};
 	

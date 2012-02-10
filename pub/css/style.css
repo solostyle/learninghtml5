@@ -334,7 +334,7 @@ body {background-color:#e4e5dd}
     MOBILE: Menu
    ============== */
 
-nav a{
+nav#categories a{
 	display:block;
 	margin-bottom:10px;
 	padding:10px 0;
@@ -347,11 +347,11 @@ nav a{
 	font-weight:bold;
 }
 
-nav a:hover, nav a:visited{
+nav#categories a:hover, nav#categories a:visited{
 	color:#602225;
 }
 
-nav a:hover{
+nav#categories a:hover{
 	text-decoration:underline;
 }
 
@@ -427,15 +427,15 @@ nav a:hover{
     INTERMEDIATE: Menu
    ==================== */
 	
-	nav a{
+	nav#categories a{
 		float:left;
 		margin:0 .25%;
 		padding:0.5% 2%;
 		margin-bottom:0;
 	}
 	
-	nav li:first-child a{ margin-left:0;  }
-	nav li:last-child  a{ margin-right:0; }
+	nav#categories li:first-child a{ margin-left:0;  }
+	nav#categories li:last-child  a{ margin-right:0; }
 	
 	#footer-container .footer-block {
 		background-color:#e4e5dd; /* background of the first one */
@@ -468,10 +468,10 @@ nav a:hover{
     INTERMEDIATE: IE Fixes
    ======================== */
 
-	nav ul li{
+	nav#categories ul li{
 		display:inline;
 	}	
-	.oldie nav a{
+	.oldie nav#categories a{
 		margin:0 0.7%;		
 	}
 }

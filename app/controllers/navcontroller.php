@@ -18,7 +18,7 @@ class NavController extends Controller {
   // Creates the archive navigation menu
   function create_archive_nav_menu($arr) {
     // start the html
-    $html = '<div id="archmenuWP">';
+    $html = '<nav id="archmenuWP">';
     $html .= '<ul class="archlev1 archmenu_list_years" id="archmenu">';
     $years = array_keys($arr);
 	  
@@ -52,7 +52,7 @@ class NavController extends Controller {
       }
       $html .= '</ul>';
     }
-    $html .= '</ul></div>';
+    $html .= '</ul></nav>';
     return $html;
   }
 

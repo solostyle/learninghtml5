@@ -40,7 +40,8 @@
 	</footer><!-- end .wrapper -->
 </div><!-- end #footer-container -->
 
-<?php echo $html->includeJs('yui28yahoo');
+<?php echo $html->includeJs('jquery-1.7.1.min');
+ echo $html->includeJs('yui28yahoo');
  echo $html->includeJs('yui28event');
  echo $html->includeJs('yui28connection');
  echo $html->includeJs('yui28dom');

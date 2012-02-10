@@ -74,8 +74,7 @@ if(isset($_POST['login_submit'])) {
 	echo $html->includeCss('style');
 	echo $html->includeCss('layout');
 	echo $html->includeCss('format');
-	echo $html->includeJs('modernizr-2.0.6.min');
-	echo $html->includeJs('jquery-1.7.1.min');?>
+	echo $html->includeJs('modernizr-2.0.6.min');?>
 </head>
 <body>
 	<div id="header-container">
@@ -83,8 +82,8 @@ if(isset($_POST['login_submit'])) {
 			<h1 id="title"><a href="/">Learn HTML5</a></h1>
 			<h2 id="subtitle">including JavaScript, CSS3, and PHP-based MVC frameworks</h2>
 		
-			<nav>
-				<ul id="mainnav"><?php 
+			<nav id="categories">
+				<ul><?php 
 				select_db();
 				$cats = rtrv_categories();
 				foreach ($cats as $c) {
