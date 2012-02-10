@@ -13,6 +13,7 @@ class Model extends SQLQuery {
 		$this->_backupTable = $this->_table.'_history'; // added by archana
 		if (!isset($this->abstract)) {
 			$this->_describe();
+			$this->_describeBackup();
 		}
 	}
 
