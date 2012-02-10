@@ -217,13 +217,11 @@ article footer ul {padding:0}
 article footer ul li {display:inline;padding:0 2%;border-left:1px solid}
 article footer ul li:first-child {padding-left:0;border:0}
 
-#login-toggle, #login {
-	font-size:.8em;
-	position:absolute;
-	top:0;
-}
+#login-toggle, #login {font-size:.8em;position:absolute;top:0;}
 #login-toggle { right:0; }
 #login { right:2%; }
+
+ul#archmenu li.highlight {background-color:#FF9870;font-weight:bold}
 
 button:hover {color:#fff!important;background:#333!important}
 button#new-article-button, form#add-article-form button:not([type=submit]) {

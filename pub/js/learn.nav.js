@@ -34,9 +34,9 @@ this.Learn.Nav = this.Learn.Nav || function() {
 		}
 	};
 
-	var storeMenu = function(data, textStatus, o) {
-		if(o.responseText !== undefined){
-			Learn.Objects.Nav = JSON.parse(o.responseText);
+	var storeMenu = function(data) {
+		if(data){
+			Learn.Objects.Nav = data;
 			initMenuState();
 		}
 	};
@@ -60,9 +60,8 @@ this.Learn.Nav = this.Learn.Nav || function() {
 	};
   
 	// Stores the menu in Json in Learn.Objects.Nav
-	var saveMenuRequest = function(isAjaxR){
-      if (isAjaxR) jQuery.ajax(saveCallback);
-      else AjaxR(Learn.RootDir()+Learn.Ds()+'nav/save/0', saveCallback);
+	var saveMenuRequest = function(){
+      jQuery.ajax(saveCallback);
 	};
 	
 	// Initializes the menu state with highlights and displays
@@ -134,11 +133,10 @@ this.Learn.Nav = this.Learn.Nav || function() {
 		}
 	};
 
-	// currently unused
 	// Saves the view of the menu so that it can load it this way next time
 	var saveMenuState = function(id, yr, mo) {
 		if (!Learn.Objects.Nav) {
-			saveMenuRequest(true);
+			saveMenuRequest();
 			saveMenuState(id, yr, mo);
 		} else {
 			// look up the id in the array
@@ -211,7 +209,7 @@ this.Learn.Nav = this.Learn.Nav || function() {
 			
 			// store menu as js object
 			// TODO: Only run this if anything has been added/deleted/modified
-			saveMenuRequest(true);
+			saveMenuRequest();
 
 			// set event handler for clicks in the web part
 			Listen("click", handleClick, 'archmenuWP');
