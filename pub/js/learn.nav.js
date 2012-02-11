@@ -99,34 +99,34 @@ this.Learn.Nav = this.Learn.Nav || function() {
 		case r : // if we're at the root path
 			// expand the latest year submenu
 			var latestyear = Object.keys(menu)[0], latestmonth = Object.keys(menu[latestyear])[1]; // latest month is not index 0 which is 'count'
-			toggleMenu('archmenu_y_'+latestyear, 'archmenu_ty_'+latestyear, true);
+			toggleMenu('#archmenu_y_'+latestyear, 'archmenu_ty_'+latestyear, true);
 			// expand the latest month submenu
-			toggleMenu('archmenu_y_'+latestyear+'_m_'+latestmonth, 'archmenu_ty_'+latestyear+'_tm_'+latestmonth, true);
+			toggleMenu('#archmenu_y_'+latestyear+'_m_'+latestmonth, 'archmenu_ty_'+latestyear+'_tm_'+latestmonth, true);
 			// no highlighting
 			break;
 		case t : // year/mo/da/a-title
 			// expand month submenu
 			menu[uriArray[0]][uriArray[1]]['display'] = 'show';
-			toggleMenu('archmenu_y_'+uriArray[0]+'_m_'+uriArray[1], 'archmenu_ty_'+uriArray[0]+'_tm_'+uriArray[1], true);
+			toggleMenu('#archmenu_y_'+uriArray[0]+'_m_'+uriArray[1], 'archmenu_ty_'+uriArray[0]+'_tm_'+uriArray[1], true);
 			// expand year submenu
 			menu[uriArray[0]]['display'] = 'show';
-			toggleMenu('archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], true);
+			toggleMenu('#archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], true);
 			// highlight the title
 			menu[uriArray[0]][uriArray[1]][id]['highlight'] = 'true';
-			highlightMenu('archmenu_li_id_'+id);
+			jQuery('#archmenu_li_id_'+id).toggleClass('highlight', true);
 			break;
 		case m : // year/mo
 			// expand year submenu
 			menu[uriArray[0]]['display'] = 'show';
-			toggleMenu('archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], true);
+			toggleMenu('#archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], true);
 			// highlight the month
 			menu[uriArray[0]][uriArray[1]]['highlight'] = 'true';
-			highlightMenu('archmenu_li_y_'+uriArray[0]+'_m_'+uriArray[1]);
+			jQuery('#archmenu_li_y_'+uriArray[0]+'_m_'+uriArray[1]).toggleClass('highlight', true);
 			break;
 		case y : // year/
 			// highlight the year
 			menu[uriArray[0]]['highlight'] = 'true';
-			highlightMenu('archmenu_li_y_'+uriArray[0]);
+			jQuery('#archmenu_li_y_'+uriArray[0]).toggleClass('highlight', true);
 			break;
 		default:
 			break;
@@ -156,13 +156,13 @@ this.Learn.Nav = this.Learn.Nav || function() {
 	var toggleMenu = function(menuId, buttonId, show) {
 		var button;
 		if (typeof(show)=='undefined') {
-			button = (jQuery('#'+buttonId).html()=='--')? '+' : '--';
-			jQuery('#'+menuId).toggleClass('hidden');
-			jQuery('#'+buttonId).html(button);
+			button = (jQuery(buttonId).html()=='--')? '+' : '--';
+			jQuery(menuId).toggleClass('hidden');
+			jQuery(buttonId).html(button);
 		} else {
 			button = (show)? '--' : '+';
-			jQuery('#'+menuId).toggleClass('hidden', !show);
-			jQuery('#'+buttonId).html(button);
+			jQuery(menuId).toggleClass('hidden', !show);
+			jQuery(buttonId).html(button);
 		}
 	};
 
@@ -185,12 +185,12 @@ this.Learn.Nav = this.Learn.Nav || function() {
 		switch (cmd) {
 		case "ty": // toggle year menu
 			menuId = 'archmenu_y_'+year;
-			toggleMenu(menuId, targetId);
+			toggleMenu('#'+menuId, targetId);
 			saveMenuState(menuId, year, month);
 			break;
 		case "tm": // toggle month menu
 			menuId = 'archmenu_y_'+year+'_m_'+month;
-			toggleMenu(menuId, targetId);
+			toggleMenu('#'+menuId, targetId);
 			saveMenuState(menuId, year, month);
 			break;
 		default:
