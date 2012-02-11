@@ -99,18 +99,18 @@ this.Learn.Nav = this.Learn.Nav || function() {
 		case r : // if we're at the root path
 			// expand the latest year submenu
 			var latestyear = Object.keys(menu)[0], latestmonth = Object.keys(menu[latestyear])[1]; // latest month is not index 0 which is 'count'
-			toggleMenu('archmenu_y_'+latestyear, 'archmenu_ty_'+latestyear, 'show');
+			toggleMenu('archmenu_y_'+latestyear, 'archmenu_ty_'+latestyear, true);
 			// expand the latest month submenu
-			toggleMenu('archmenu_y_'+latestyear+'_m_'+latestmonth, 'archmenu_ty_'+latestyear+'_tm_'+latestmonth, 'show');
+			toggleMenu('archmenu_y_'+latestyear+'_m_'+latestmonth, 'archmenu_ty_'+latestyear+'_tm_'+latestmonth, true);
 			// no highlighting
 			break;
 		case t : // year/mo/da/a-title
 			// expand month submenu
 			menu[uriArray[0]][uriArray[1]]['display'] = 'show';
-			toggleMenu('archmenu_y_'+uriArray[0]+'_m_'+uriArray[1], 'archmenu_ty_'+uriArray[0]+'_tm_'+uriArray[1], 'show');
+			toggleMenu('archmenu_y_'+uriArray[0]+'_m_'+uriArray[1], 'archmenu_ty_'+uriArray[0]+'_tm_'+uriArray[1], true);
 			// expand year submenu
 			menu[uriArray[0]]['display'] = 'show';
-			toggleMenu('archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], 'show');
+			toggleMenu('archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], true);
 			// highlight the title
 			menu[uriArray[0]][uriArray[1]][id]['highlight'] = 'true';
 			highlightMenu('archmenu_li_id_'+id);
@@ -118,7 +118,7 @@ this.Learn.Nav = this.Learn.Nav || function() {
 		case m : // year/mo
 			// expand year submenu
 			menu[uriArray[0]]['display'] = 'show';
-			toggleMenu('archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], 'show');
+			toggleMenu('archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], true);
 			// highlight the month
 			menu[uriArray[0]][uriArray[1]]['highlight'] = 'true';
 			highlightMenu('archmenu_li_y_'+uriArray[0]+'_m_'+uriArray[1]);
@@ -153,18 +153,16 @@ this.Learn.Nav = this.Learn.Nav || function() {
 	};
 	
 	// Toggles the view of menus and their buttons
-	var toggleMenu = function(menuId, buttonId, override) {
-		var menu = Ydom.get(menuId),
-		button = Ydom.get(buttonId);
-		
-		// SHOW
-		if (override === 'show' || Ydom.hasClass(menu, 'hidden')) {
-			Ydom.removeClass(menu, 'hidden');
-			button.innerHTML = "--";
+	var toggleMenu = function(menuId, buttonId, show) {
+		var button;
+		if (typeof(show)=='undefined') {
+			button = (jQuery('#'+buttonId).html()=='--')? '+' : '--';
+			jQuery('#'+menuId).toggleClass('hidden');
+			jQuery('#'+buttonId).html(button);
 		} else {
-		// HIDE
-			Ydom.addClass(menu, 'hidden');
-			button.innerHTML = "+";
+			button = (show)? '--' : '+';
+			jQuery('#'+menuId).toggleClass('hidden', !show);
+			jQuery('#'+buttonId).html(button);
 		}
 	};
 
