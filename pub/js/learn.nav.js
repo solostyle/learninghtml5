@@ -22,15 +22,13 @@ this.Learn.Nav = this.Learn.Nav || function() {
 		parentElem = function() {return jQuery('archmenuWP').parent();};
 
 	// Success and failure functions for different requests
-	var handleFailure = function(o){
-		if(o.responseText !== undefined){
-			parentElem().html("request failure: " + o.responseText + parentElem().html());
-		}
+	var handleFailure = function(data){
+		parentElem().html("request failure: " + data + parentElem().html());
 	};
 
-	var insertMenu = function(o) {
-		if(o.responseText !== undefined){
-			parentElem().html(o.responseText);
+	var insertMenu = function(data) {
+		if(data){
+			parentElem().html(data);
 		}
 	};
 
@@ -42,9 +40,10 @@ this.Learn.Nav = this.Learn.Nav || function() {
 	};
 	
 	var indexCallback ={
-		method:"GET",
+		url: Learn.RootDir()+Learn.Ds()+'nav/index/1',
 		success: insertMenu,
-		failure: handleFailure
+		error: handleFailure,
+		dataType: 'html'
 	};
 	var saveCallback ={
 		url: Learn.RootDir()+Learn.Ds()+'nav/save/1',
@@ -54,9 +53,8 @@ this.Learn.Nav = this.Learn.Nav || function() {
 	};
 	
 	//Handler to make XHR request for just showing all entries
-	var indexRequest = function(isAjaxR){
-      if (isAjaxR) AjaxR(Learn.RootDir()+Learn.Ds()+'nav/index/1', indexCallback);
-      else AjaxR(Learn.RootDir()+Learn.Ds()+'nav/index/0', indexCallback);
+	var indexRequest = function(){
+      jQuery.ajax(indexCallback);
 	};
   
 	// Stores the menu in Json in Learn.Objects.Nav
@@ -90,7 +88,7 @@ this.Learn.Nav = this.Learn.Nav || function() {
 				m = true;
 				if (uriArray[3] && uriArray.join('/') in menu[uriArray[0]][uriArray[1]]) {
 					t = true;
-					id = uriArray.join('/');
+					id = uriArray.join('-');
 				}
 			}
 		}
@@ -112,7 +110,7 @@ this.Learn.Nav = this.Learn.Nav || function() {
 			menu[uriArray[0]]['display'] = 'show';
 			toggleMenu('#archmenu_y_'+uriArray[0], 'archmenu_ty_'+uriArray[0], true);
 			// highlight the title
-			menu[uriArray[0]][uriArray[1]][id]['highlight'] = 'true';
+			menu[uriArray[0]][uriArray[1]][id.replace(/-/gi, "/")]['highlight'] = 'true';
 			jQuery('#archmenu_li_id_'+id).toggleClass('highlight', true);
 			break;
 		case m : // year/mo
@@ -143,11 +141,11 @@ this.Learn.Nav = this.Learn.Nav || function() {
 			// if it's not found, do nothing
 			// if found, get the class of the element
 			// if it has a hidden class, change the display of the id to hide
-			var menu = Ydom.get(id);
+			var menu = jQuery('#'+id);
 			if (mo) {
-				Learn.Objects.Nav[yr][mo]['display'] = Ydom.hasClass(menu, 'hidden') ? 'hide' : 'show';
+				Learn.Objects.Nav[yr][mo]['display'] = menu.hasClass('hidden') ? 'hide' : 'show';
 			} else {
-				Learn.Objects.Nav[yr]['display'] = Ydom.hasClass(menu, 'hidden') ? 'hide' : 'show';
+				Learn.Objects.Nav[yr]['display'] = menu.hasClass('hidden') ? 'hide' : 'show';
 			}
 		}
 	};
@@ -165,13 +163,6 @@ this.Learn.Nav = this.Learn.Nav || function() {
 			jQuery(buttonId).html(button);
 		}
 	};
-
-	// Highlights the link we're on
-	var highlightMenu = function(id) {
-		var el = Ydom.get(id);
-		Ydom.addClass(el, 'highlight');
-	};
-	
 	
 	// Handles Clicks in the web part
 	var handleClick = function(e) {

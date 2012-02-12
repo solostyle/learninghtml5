@@ -44,7 +44,7 @@ class NavController extends Controller {
 	$html .= '<ul class="archlev3 archmenu_list_titles hidden" id="archmenu_y_' . $y . '_m_' . $m . '">';
 	foreach($entries as $id => $entry) {
 		
-	  $html .= '<li id="archmenu_li_id_' . $id . '">';
+	  $html .= '<li id="archmenu_li_id_' . str_replace('/','-',$id) . '">'; # replace slashes with hyphens for id
 	  $html .= make_link($entry['title'], make_url($id));
 	  $html .= '</li>';
 	}
